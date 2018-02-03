@@ -1,0 +1,76 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 2
+  tags:
+  - CannotMove
+  - Bullet
+  - Room1E
+  - Enemy
+  - Doorwell
+  - Floor
+  - Room1Enemy
+  - Room1Door
+  - Room2Enemy
+  - Room2Door
+  - enemyBullet
+  - Room3Door
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - 
+  - Water
+  - UI
+  - 
+  - 
+  - BlockingLayer
+  - bullet
+  - Entity
+  - Floor
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: Default
+    uniqueID: 0
+    locked: 0
+  - name: OntopofFloor
+    uniqueID: 4197772617
+    locked: 0
+  - name: player
+    uniqueID: 1303668085
+    locked: 0
+  - name: bullet
+    uniqueID: 2991077149
+    locked: 0
+  - name: obstacle
+    uniqueID: 1981125435
+    locked: 0
+  - name: New Layer
+    uniqueID: 1581261469
+    locked: 0
+  - name: New Layer
+    uniqueID: 716486175
+    locked: 0
+  - name: healthBar
+    uniqueID: 3572956537
+    locked: 0
