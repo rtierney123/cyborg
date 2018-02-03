@@ -20,7 +20,7 @@ public class bulletPhysics : MonoBehaviour
     void Awake()
     {
         GameObject thePlayer = GameObject.Find("Player");
-        NewBehaviourScript playerScript = thePlayer.GetComponent<NewBehaviourScript>();
+        playerMovement playerScript = thePlayer.GetComponent<playerMovement>();
         moveDirection = playerScript.direction;
         moveDirection.Normalize();
     }
