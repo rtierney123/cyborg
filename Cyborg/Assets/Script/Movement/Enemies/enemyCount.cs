@@ -43,7 +43,11 @@ public class enemyCount : MonoBehaviour {
         {
             foreach (GameObject enemy in enemies)
             {
-               enemy.GetComponent<EnemyAI>().setSpeed(storeSpeed);
+                if(enemy != null)
+                {
+                    enemy.GetComponent<EnemyAI>().setSpeed(storeSpeed);
+                }
+               
             }
         }
     }

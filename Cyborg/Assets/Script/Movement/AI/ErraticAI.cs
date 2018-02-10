@@ -38,11 +38,11 @@ public class ErraticAI : EnemyAI {
     public override Vector2 move(Vector2 tan)
     {
         Vector3 targetPosition;
-        if (player.active == false)
+        if (player.active != false)
         {
-            targetPosition = GameObject.Find("Player").transform.position;
-        }   else
-        {
+          targetPosition = GameObject.Find("Player").transform.position;
+        }
+        else {
             targetPosition = new Vector3(0, 0, 0);
         }
        
