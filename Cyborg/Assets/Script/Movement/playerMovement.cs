@@ -14,6 +14,7 @@ public class playerMovement: MonoBehaviour
     public Sprite[] spritArray;
     public int change;
 
+    [HideInInspector]
     public BoxCollider2D boxcollider;
     private GameObject player;
     private bool rtFace;
@@ -77,16 +78,11 @@ public class playerMovement: MonoBehaviour
     }
     void FixedUpdate()
     {
-
-        //Move();
-        //transform.position = new Vector2(x, y);
         float moveHorizontal = Input.GetAxisRaw("Horizontal");
         float moveVertical = Input.GetAxisRaw("Vertical");
 
         Vector2 movement = new Vector3(moveHorizontal, moveVertical);
 
-        //rb.AddForce(movement * speed);
-        //if (!(this.boxcollider.IsTouchingLayers(GameObject.FindGameObjectsWithTag("CannotMove").GetComponent<BoxCollider2D>()))){
         rb.velocity = movement * speed;
         
     }
@@ -119,23 +115,7 @@ public class playerMovement: MonoBehaviour
             {
                 bulletplace = new Vector3(transform.position.x, transform.position.y-spriteHeight /2,1);
             }
-            /*
-            else if (dir.Equals("rt"))
-            {
-                direction.x = change;
-                direction.y = 0;
-            }
-            else if (dir.Equals("tp"))
-            {
-                direction.x = 0;
-                direction.y = change;
-            }
-            else if (dir.Equals("bm"))
-            {
-                direction.x = 0;
-                direction.y = -change;
-            }
-            */
+        
 
             Instantiate(projectile, bulletplace, Quaternion.identity);
         
@@ -234,32 +214,6 @@ public class playerMovement: MonoBehaviour
 
     }
 
-    /*void Move()
-    {
-        if (Input.GetKey(KeyCode.W))
-        {
-            dir = "+y";
-            y = y + speed;
-        }
-        else if (Input.GetKey(KeyCode.S))
-        {
-            dir = "-y";
-            y = y - speed;
-        }
-        else if (Input.GetKey(KeyCode.D))
-        {
-            dir = "+x";
-            x = x + speed;
-        }
-        else if (Input.GetKey(KeyCode.A))
-        {
-            dir = "-x";
-            x = x - speed;
-        }
-        else
-        {
-            return;
-        }
-    }*/
+
 }
 
