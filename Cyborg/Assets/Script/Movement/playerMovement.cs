@@ -69,12 +69,16 @@ public class playerMovement: MonoBehaviour
     }
     void CheckHealth()
     {
-        GameObject healthBar = GameObject.Find("HealthBar");
-        if(healthBar.transform.childCount==0 && invincible!= true)
+        if (GameObject.Find("HealthBar") != null)
         {
-            gameObject.active = false;
-            rend.enabled = false;
+            GameObject healthBar = GameObject.Find("HealthBar");
+            if (healthBar.transform.childCount == 0 && invincible != true)
+            {
+                gameObject.active = false;
+                rend.enabled = false;
+            }
         }
+       
     }
     void FixedUpdate()
     {
