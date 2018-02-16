@@ -1,0 +1,47 @@
+MAJOR:
+    - Redid room organization/hierarchy so enemies and other room objects maintain the same scale across all rooms. 
+    - Changed where and how enemies and doors are "activated"
+    - Adjusted camera to use UnityUI for displaying healthbar (now scales with camera and renders appropriately on top of everything in the scene).
+Minor:
+    - Fixed the powerups to despawn when triggered, so only one additional life is gained
+
+Looks real bad in the Level 1 scene because I normalized many of the enemy prefabs' scales to all be (1,1,1). However, if you look in RhiannanTest scene, it appears as intented. 
+
+Room Hierarchy Detail:
+    - The pre-existing scale of the rooms was maintained by first dragging all of the children of each room out of Room(1,2,3,4) and into the Level gameobject. This lets these existing children keep their scales that were already establish.
+    - Room objects were given a static rigidbody in order to be able to use OnCollissionEnter 
+    - Each room gameobject was then set to have scale (1,1,1), and given 3 primary children all of which also have a scale of (1,1,1). These children are Obstacles, Layout, and Enemies. Obstacles contains all the obstacles appearing in that room. Layout contains all the background related objects, walls, floor, doors, and the new Room-Entering trigger collider.
+    - Enemies of course contains the enemies. 
+    - The most important child is Layout, which will specifically also contain the children Doors, Walls, and (for all rooms except the first of each level) RoomEnterTrigger.
+    - Layout could actually probably be scaled in the same way the rooms were previously being scaled without affecting functionality or enemy and obstacle functionality. 
+        - Doors: It's children are the doors of each room. The children can be named anything, but the parent MUST be named doors for the RoomManager script to find and activate or de-activate doors. 
+        - Walls: Not currently tied down to a script, but it's probably still best to keep them in a separate folder simply for organization's sake
+        - RoomEnterTrigger: An empty game object with just a box collider attached. This is what triggers the doors and enemies of a room to activate (both occur in the RoomManager script attached to each Room).
+
+Room Gameobject Format:
+Room:
+    Obstacles:
+        //all of the room's obstacles
+    Layout:
+        Doors:
+            //all of the room's doors
+        Walls:
+            //the walls
+        Doorwell
+        Floor
+        RoomEnterTrigger (for all rooms except first)
+    Enemies:
+        //all enemies
+
+More Details:
+    Colliders have been removed or at least disabled from all doorwells and floors. This is because the door and enemy triggering is now delegated to the RoomEnterTrigger collider.
+        - The code is actually all handled in RoomManager, though. OnTriggerEnter2D can be called from a parent, so I figured since the functionality is all high level stuff that's pretty common across rooms, it should all be handled on the room object itself.
+        - The script just needs the room number (could probably just be changed to an isFirstRoomOfLevel bool, tbh) and the transform of the previous room (to get its doors in order to activate them);
+
+UI:
+    - IIRC, you were having a problem with the lives being added multiple times, and I'm fairly certain it's just because the powerup wasn't being destroyed after it's OnTriggerEnter, so I added that. 
+    - I also moved to using UnityUI for scaling at different screen resolutions (and also put it in screen space so it's easier to keep track of in Scene view).
+        - Anyway, I realized I made a really obnoxious amount of changes without commiting after it was too late.
+        - If you just want the UI bug fix, just have the powerup Destroy itself when player triggers it
+
+I'm sorry im long winded and annoying even in text ;-;
