@@ -14,11 +14,8 @@ public class playerPickup : MonoBehaviour {
 
         if (col.gameObject.name == "Player")
         {
-            GameObject rightmostHealth = healthBar.transform.GetChild(healthBar.transform.childCount - 1).gameObject;
-            Vector2 place = rightmostHealth.transform.position;
-            place.x = place.x + 1;
-            Instantiate(healthHead, place, Quaternion.identity).transform.parent = healthBar.transform;
-            Destroy(this.gameObject);
+            healthBar.GetComponent<HealthBarUI>().AddLife();
+            Destroy(gameObject);
         }
     }
 }

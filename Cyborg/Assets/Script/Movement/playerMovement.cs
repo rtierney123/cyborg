@@ -208,8 +208,7 @@ public class playerMovement: MonoBehaviour
 
         if (collision.gameObject.tag == "Enemy" && healthBar.transform.childCount != 0)
         {
-            GameObject childHead = healthBar.transform.GetChild(0).gameObject;
-            Destroy(childHead);
+            healthBar.GetComponent<HealthBarUI>().RemoveLife();
         }
 
     }
