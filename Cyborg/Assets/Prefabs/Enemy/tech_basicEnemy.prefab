@@ -42,7 +42,7 @@ Transform:
   m_GameObject: {fileID: 1651109160070608}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0.16478153, y: -0.38717067, z: 1}
-  m_LocalScale: {x: 0.06729863, y: 0.070018, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -151,7 +151,7 @@ MonoBehaviour:
   target: {fileID: 0}
   canSearch: 1
   canMove: 1
-  speed: 10
+  speed: 40
   rotationSpeed: 360
   slowdownDistance: 0.6
   pickNextWaypointDist: 2
