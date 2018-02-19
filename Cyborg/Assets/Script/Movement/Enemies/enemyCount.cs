@@ -4,16 +4,14 @@ using UnityEngine;
 
 public class enemyCount : MonoBehaviour {
     public int roomnum;
-    public string doorString;
+    public GameObject[] doors;
 
-    private GameObject[] doors;
     private GameObject[] enemies;
     private float storeSpeed;
     private bool firstopen;
 
     void Awake()
     {
-        doors=GameObject.FindGameObjectsWithTag(doorString);
         enemies = new GameObject[transform.childCount];
         for (int i=0; i<transform.childCount; i++)
         {

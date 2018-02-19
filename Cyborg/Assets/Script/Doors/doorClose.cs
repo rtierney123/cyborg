@@ -3,14 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class doorClose : MonoBehaviour {
-    public string doorString;
 
-    private GameObject[] doors;
+    public GameObject[] doors;
 
-    void Awake()
-    {
-        doors = GameObject.FindGameObjectsWithTag(doorString);
-    }
+ 
     void OnTriggerEnter2D(Collider2D col)
     {
    
