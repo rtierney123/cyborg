@@ -17,6 +17,7 @@ public class RoomManager : MonoBehaviour {
         playerInRoom = (roomnum == 1);
 
         doorsParent = transform.Find("Layout/Doors");
+      
         if (doorsParent == null) {
             Debug.LogError("Could not find path Layout/Doors in " + transform.name + " object.");
         }
