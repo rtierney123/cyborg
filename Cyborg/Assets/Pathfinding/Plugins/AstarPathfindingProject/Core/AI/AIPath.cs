@@ -139,6 +139,11 @@ public class AIPath : AIBase {
         rb.freezeRotation = true;
         target = GameObject.Find("Player").transform;
         ai = gameObject.GetComponent<EnemyAI>();
+
+        if (ai == null)
+        {
+            Debug.LogError("Could not find instance of EnemyAI.");
+        }
     }
 
     private new void FixedUpdate()
