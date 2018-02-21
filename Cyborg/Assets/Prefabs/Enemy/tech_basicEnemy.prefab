@@ -26,8 +26,9 @@ GameObject:
   - component: {fileID: 114968080281337184}
   - component: {fileID: 61096399014823096}
   - component: {fileID: 114614055399933528}
-  - component: {fileID: 114377408245298520}
   - component: {fileID: 61447381180995746}
+  - component: {fileID: 114996580768048128}
+  - component: {fileID: 114210206228603354}
   m_Layer: 9
   m_Name: tech_basicEnemy
   m_TagString: Enemy
@@ -42,7 +43,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1651109160070608}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2.823976, y: 4.0298014, z: 1}
+  m_LocalPosition: {x: -5.247106, y: -6.590624, z: 1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -143,7 +144,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.150723, y: 1.0551854}
   m_EdgeRadius: 0
---- !u!114 &114377408245298520
+--- !u!114 &114210206228603354
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -177,7 +178,7 @@ MonoBehaviour:
   target: {fileID: 0}
   canSearch: 1
   canMove: 1
-  speed: 0
+  speed: 15
   rotationSpeed: 360
   slowdownDistance: 0.6
   pickNextWaypointDist: 2
@@ -224,6 +225,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   healthDrop: {fileID: 1884255959074350, guid: 31181bbca2a52b34d96a9193f7640a81, type: 2}
   deathCount: 5
+--- !u!114 &114996580768048128
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1651109160070608}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5406d8e66c1d8824a8cbca2c97619336, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  delay: 0
 --- !u!212 &212967156020062450
 SpriteRenderer:
   m_ObjectHideFlags: 1

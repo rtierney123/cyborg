@@ -26,6 +26,7 @@ GameObject:
   - component: {fileID: 114183197215288778}
   - component: {fileID: 61318333058452920}
   - component: {fileID: 114180694509778854}
+  - component: {fileID: 114755861488556606}
   m_Layer: 9
   m_Name: generic_enemy
   m_TagString: Enemy
@@ -157,6 +158,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthDrop: {fileID: 1884255959074350, guid: 31181bbca2a52b34d96a9193f7640a81, type: 2}
+  deathCount: 0
 --- !u!114 &114550372471734338
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -185,6 +187,18 @@ MonoBehaviour:
     tagsChange: -1
     tagsSet: -1
   tagPenalties: 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+--- !u!114 &114755861488556606
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1887397338150660}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5406d8e66c1d8824a8cbca2c97619336, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  delay: 0
 --- !u!212 &212588986036457968
 SpriteRenderer:
   m_ObjectHideFlags: 1

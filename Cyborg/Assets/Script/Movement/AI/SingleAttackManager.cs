@@ -4,13 +4,17 @@ using UnityEngine;
 
 public class SingleAttackManager : AttackManager {
 
+    void Start()
+    {
+        attacks = gameObject.GetComponents(typeof(Attack));
+    }
 
     public override Attack chooseAttack()
     {
-        if (attacks == null)
+        if (attacks.Length == 0)
         {
             Debug.Log("Must have at least one attack.");
         }
-        return attacks[0];
+        return (Attack) attacks[0];
     }
 }

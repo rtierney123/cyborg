@@ -2,10 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ErraticAI : EnemyAI {
+public class ErraticAI : Attack {
     public float chargeDelay;
     public float chargeDuration;
     private Rigidbody2D rb;
+    private Transform[] boxColliders;
+    private int onIndex;
+
     private Vector2 dir;
     //used for erratic enemy, starting position for charge
     private Vector3 startPos;
@@ -32,13 +35,20 @@ public class ErraticAI : EnemyAI {
     {
         mySpriteRenderer = GetComponent<SpriteRenderer>();
         player = GameObject.Find("Player");
+        //attacks = gameObject.GetComponents(typeof(Attack));
+        //boxColliders = gameObject.G
+        boxColliders = new Transform[transform.childCount];
+        for (int i = 0; i < transform.childCount; i++)
+        {
+            boxColliders[i] = transform.GetChild(i);
+        }
     }
 
 
     public override Vector2 move(Vector2 tan)
     {
         Vector3 targetPosition;
-        if (player.active != false)
+        if (player.activeSelf != false)
         {
           targetPosition = GameObject.Find("Player").transform.position;
         }
@@ -84,6 +94,15 @@ public class ErraticAI : EnemyAI {
                 mySpriteRenderer.flipY = false;
                 mySpriteRenderer.sprite = spriteArray[0];
 
+                if (onIndex != 0)
+                {
+                    
+                    transform.GetChild(onIndex).gameObject.SetActive(false);
+                    onIndex = 0;
+                    transform.GetChild(onIndex).gameObject.SetActive(true);
+                    
+                }
+               
             }
             else if (erraticDir.x == -1)
             {
@@ -92,6 +111,13 @@ public class ErraticAI : EnemyAI {
                 mySpriteRenderer.flipY = false;
                 mySpriteRenderer.sprite = spriteArray[0];
 
+                if (onIndex != 1)
+                {
+                    transform.GetChild(onIndex).gameObject.SetActive(false);
+                    onIndex = 1;
+                    transform.GetChild(onIndex).gameObject.SetActive(true);
+                    
+                }            
             }
             else if (erraticDir.y == 1)
             {
@@ -100,6 +126,14 @@ public class ErraticAI : EnemyAI {
                 mySpriteRenderer.flipY = true;
                 mySpriteRenderer.sprite = spriteArray[1];
 
+                if (onIndex != 2)
+                {
+                    
+                    transform.GetChild(onIndex).gameObject.SetActive(false);
+                    onIndex = 2;
+                    transform.GetChild(onIndex).gameObject.SetActive(true);
+                    
+                }               
             }
             else if (erraticDir.y == -1)
             {
@@ -108,6 +142,14 @@ public class ErraticAI : EnemyAI {
                 mySpriteRenderer.flipY = false;
                 mySpriteRenderer.sprite = spriteArray[1];
 
+                if (onIndex != 3)
+                {
+                    
+                    transform.GetChild(onIndex).gameObject.SetActive(false);
+                    onIndex = 3;
+                    transform.GetChild(onIndex).gameObject.SetActive(true);
+                    
+                }              
             }
         }
         startCharge = false;
@@ -172,5 +214,9 @@ public class ErraticAI : EnemyAI {
         return newCoord;
     }
 
+    public override void attack()
+    {
+
+    }
 
 }

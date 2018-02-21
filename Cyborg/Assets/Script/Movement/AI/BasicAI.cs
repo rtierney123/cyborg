@@ -1,8 +1,9 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BasicAI : EnemyAI {
+public class BasicAI : Attack {
    
     public override Vector2 move(Vector2 tan)
     {
@@ -14,6 +15,11 @@ public class BasicAI : EnemyAI {
 
     }
 
+    public override void attack()
+    {
+        throw new NotImplementedException();
+    }
 
-    
+
+
 }

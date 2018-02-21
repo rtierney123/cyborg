@@ -14,9 +14,9 @@ public class TankBearAttackManager : AttackManager {
         StartCoroutine(StartAttack());
     }
 
-    public override void chooseAttack()
+    public override Attack chooseAttack()
     {
-
+        return new BasicAI();
     }
 
     IEnumerator StartAttack()

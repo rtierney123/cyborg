@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public abstract class AttackManager : MonoBehaviour {
+    
     //use as base for all boss attack managers
-    public Attack[] attacks;
+    protected Component[] attacks;
     //delay between attacks
     public int delay;
 
