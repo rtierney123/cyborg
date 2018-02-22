@@ -160,6 +160,7 @@ public class AIPath : AIBase {
         attack.updateSprites();
     }
 
+
     public void updateTarget(Transform newTarget)
     {
         target = newTarget;

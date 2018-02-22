@@ -26,11 +26,12 @@ public class RoomManager : MonoBehaviour {
         if (enemiesParent == null) {
             Debug.LogError("Could not find path Enemies in " + transform.name + " object.");
         }
-
+        /*
         if (!playerInRoom) {
             enemiesParent.gameObject.SetActive(false);
         }
-
+        */
+        enemiesParent.gameObject.SetActive(false);
         GetPreviousRoomDoors();
              
         firstopen = true;
@@ -50,6 +51,15 @@ public class RoomManager : MonoBehaviour {
 
     void OnTriggerEnter2D(Collider2D other)
     {
+        
+        if (other.gameObject.tag == "Player")
+        {
+            playerInRoom = true;
+            Debug.Log("Entering " + transform.name);
+            //enemiesParent.gameObject.SetActive(true);
+            ClosePreviousRoomDoors();
+        }
+        /*
         if (other.gameObject.tag == "Player" && !playerInRoom)
         {
             playerInRoom = true;
@@ -57,6 +67,7 @@ public class RoomManager : MonoBehaviour {
             enemiesParent.gameObject.SetActive(true);
             ClosePreviousRoomDoors();               
         }
+        */
     }
 
     void GetPreviousRoomDoors() {

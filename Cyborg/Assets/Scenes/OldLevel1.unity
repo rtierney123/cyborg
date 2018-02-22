@@ -803,7 +803,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4844044831508940, guid: 337b153e87d3b4a4489887505e280f75, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -0.2147
+      value: 2.238
       objectReference: {fileID: 0}
     - target: {fileID: 4844044831508940, guid: 337b153e87d3b4a4489887505e280f75, type: 2}
       propertyPath: m_LocalPosition.y
@@ -956,9 +956,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d0bef6090a77c9449eaaba7e5e57853, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  doors:
-  - {fileID: 1701275245}
-  - {fileID: 932278491}
+  previousRoom: {fileID: 0}
 --- !u!61 &341255332
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1978,48 +1976,6 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
---- !u!1001 &795691427
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 1605176175}
-    m_Modifications:
-    - target: {fileID: 4327592054137654, guid: b4bc4aae270ad4f4da9394d47f58d985, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 0.16478153
-      objectReference: {fileID: 0}
-    - target: {fileID: 4327592054137654, guid: b4bc4aae270ad4f4da9394d47f58d985, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: -0.38717067
-      objectReference: {fileID: 0}
-    - target: {fileID: 4327592054137654, guid: b4bc4aae270ad4f4da9394d47f58d985, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4327592054137654, guid: b4bc4aae270ad4f4da9394d47f58d985, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4327592054137654, guid: b4bc4aae270ad4f4da9394d47f58d985, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4327592054137654, guid: b4bc4aae270ad4f4da9394d47f58d985, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4327592054137654, guid: b4bc4aae270ad4f4da9394d47f58d985, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4327592054137654, guid: b4bc4aae270ad4f4da9394d47f58d985, type: 2}
-      propertyPath: m_RootOrder
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: b4bc4aae270ad4f4da9394d47f58d985, type: 2}
-  m_IsPrefabParent: 0
 --- !u!1 &833103071
 GameObject:
   m_ObjectHideFlags: 0
@@ -2278,9 +2234,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d0bef6090a77c9449eaaba7e5e57853, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  doors:
-  - {fileID: 2069035352}
-  - {fileID: 1701275245}
+  previousRoom: {fileID: 0}
 --- !u!1 &910806001
 GameObject:
   m_ObjectHideFlags: 0
@@ -3581,11 +3535,6 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e2ef019f48b86d241bb0a2dde6e93c8e, type: 2}
   m_IsPrefabParent: 0
---- !u!4 &1160563415 stripped
-Transform:
-  m_PrefabParentObject: {fileID: 4327592054137654, guid: b4bc4aae270ad4f4da9394d47f58d985,
-    type: 2}
-  m_PrefabInternal: {fileID: 795691427}
 --- !u!1 &1165497985
 GameObject:
   m_ObjectHideFlags: 0
@@ -4962,10 +4911,9 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1605176174}
   m_LocalRotation: {x: -0, y: -0, z: -0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -0, y: 0.03, z: 0}
   m_LocalScale: {x: 1.8250004, y: 10, z: 1}
-  m_Children:
-  - {fileID: 1160563415}
+  m_Children: []
   m_Father: {fileID: 196567773}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -5025,8 +4973,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d0bef6090a77c9449eaaba7e5e57853, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  doors:
-  - {fileID: 2069035352}
+  previousRoom: {fileID: 0}
 --- !u!61 &1605176178
 BoxCollider2D:
   m_ObjectHideFlags: 0

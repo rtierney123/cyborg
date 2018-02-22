@@ -5,7 +5,8 @@ using UnityEngine;
 public abstract class EnemyAI : MonoBehaviour {
     //this class gets the tangent of the path from A*
     //use this as base for all ememy movement scripts
-    
+
+
     public abstract Vector2 move(Vector2 tan);
 
     public abstract void updateSprites();
@@ -26,4 +27,5 @@ public abstract class EnemyAI : MonoBehaviour {
         AIPath ai = GetComponent<AIPath>();
         ai.updateTarget(newTarget);
     }
+
 }

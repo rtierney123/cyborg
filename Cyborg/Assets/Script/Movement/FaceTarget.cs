@@ -11,10 +11,15 @@ public class FaceTarget : MonoBehaviour {
     private SpriteRenderer mySpriteRenderer;
     private Vector2 currentPos;
     private Vector2 targetPos;
-    private Vector2 dirToTarget;
+    private UpdateColliders updateCol;
+    private GameObject onCol;
+    public Vector2 dirToTarget;
 	// Use this for initialization
 	void Start () {
         mySpriteRenderer = this.GetComponent<SpriteRenderer>();
+        updateCol = this.GetComponent<UpdateColliders>();
+        onCol = updateCol.bmCol;
+        target = GameObject.Find("Player");
     }
 	
 	// Update is called once per frame
@@ -34,20 +39,36 @@ public class FaceTarget : MonoBehaviour {
             {
                 mySpriteRenderer.flipX = false;
                 mySpriteRenderer.sprite = right;
+
+                onCol.SetActive(false);
+                onCol = updateCol.rtCol;
+                onCol.SetActive(true);
             }
             else
             {
                 mySpriteRenderer.flipX = true;
                 mySpriteRenderer.sprite = right;
+
+                onCol.SetActive(false);
+                onCol = updateCol.ltCol;
+                onCol.SetActive(true);
             }
         } else
         {
             if (y > 0)
             {
                 mySpriteRenderer.sprite = up;
+
+                onCol.SetActive(false);
+                onCol = updateCol.tpCol;
+                onCol.SetActive(true);
             } else
             {
                 mySpriteRenderer.sprite = down;
+
+                onCol.SetActive(false);
+                onCol = updateCol.bmCol;
+                onCol.SetActive(true);
             }
         }
 
