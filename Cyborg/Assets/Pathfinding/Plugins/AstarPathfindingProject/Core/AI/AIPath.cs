@@ -118,8 +118,11 @@ public class AIPath : AIBase {
 
     private Rigidbody2D rb;
 
-    //get AI script
-    private EnemyAI ai;
+    //find attack manager to get attacks
+    private AttackManager attackManager;
+
+    //script to make move and do attack routines
+    private Attack attack;
     
     /** Rotation speed.
 	 * \deprecated This field has been renamed to #rotationSpeed and is now in degrees per second instead of a damping factor.
@@ -138,18 +141,25 @@ public class AIPath : AIBase {
         rb = GetComponent<Rigidbody2D>();
         rb.freezeRotation = true;
         target = GameObject.Find("Player").transform;
-        ai = gameObject.GetComponent<EnemyAI>();
+        attackManager = gameObject.GetComponent<AttackManager>();
+
+        if (attackManager== null)
+        {
+            Debug.LogError("Could not find instance of AttackManager.");
+        }
     }
 
     private new void FixedUpdate()
     {
+        attack = attackManager.chooseAttack();
         if (this.interpolator.tangent != null)
         {
-           rb.velocity = ai.move(this.interpolator.tangent);
+           rb.velocity = attack.move(this.interpolator.tangent);
         }
         
-        ai.updateSprites();
+        attack.updateSprites();
     }
+
 
     public void updateTarget(Transform newTarget)
     {

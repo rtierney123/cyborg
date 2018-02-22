@@ -31,6 +31,8 @@ public class playerMovement: MonoBehaviour
     public bool invincible;
     private Renderer rend;
 
+    private bool allowDamage;
+
 
 
 
@@ -44,6 +46,7 @@ public class playerMovement: MonoBehaviour
         dir = "rt";
         rend = GetComponent<Renderer>();
         rend.enabled = true;
+        allowDamage = true;
 
 
     }
@@ -69,12 +72,16 @@ public class playerMovement: MonoBehaviour
     }
     void CheckHealth()
     {
-        GameObject healthBar = GameObject.Find("HealthBar");
-        if(healthBar.transform.childCount==0 && invincible!= true)
+        if (GameObject.Find("HealthBar") != null)
         {
-            gameObject.active = false;
-            rend.enabled = false;
+            GameObject healthBar = GameObject.Find("HealthBar");
+            if (healthBar.transform.childCount == 0 && invincible != true)
+            {
+                gameObject.active =false;
+                rend.enabled = false;
+            }
         }
+       
     }
     void FixedUpdate()
     {
@@ -199,19 +206,48 @@ public class playerMovement: MonoBehaviour
     }
 
 
-
-
-
+    /*
     void OnCollisionEnter2D(Collision2D collision)
     {
         GameObject healthBar = GameObject.Find("HealthBar");
 
         if (collision.gameObject.tag == "Enemy" && healthBar.transform.childCount != 0)
         {
-            GameObject childHead = healthBar.transform.GetChild(0).gameObject;
-            Destroy(childHead);
+            Debug.Log("hit" + countHits);
+            Debug.Log(allowDamage);
+            countHits++;
+            if (allowDamage)
+            {
+                healthBar.GetComponent<HealthBarUI>().RemoveLife();
+                allowDamage = false;
+                StartCoroutine(DelayHits());
+            }
+            
         }
 
+    }
+    */
+
+    public float damageTimeout = 1f;
+    private bool canTakeDamage = true;
+
+
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        GameObject healthBar = GameObject.Find("HealthBar");
+        if (collision.gameObject.tag == "Enemy" && healthBar.transform.childCount != 0 && canTakeDamage)
+        {
+            healthBar.GetComponent<HealthBarUI>().RemoveLife();
+            StartCoroutine(damageTimer());
+        }
+
+    }
+
+    private IEnumerator damageTimer()
+    {
+        canTakeDamage = false;
+        yield return new WaitForSeconds(damageTimeout);
+        canTakeDamage = true;
     }
 
 

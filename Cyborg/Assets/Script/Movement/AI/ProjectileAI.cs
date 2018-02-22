@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ProjectileAI : EnemyAI{
+public class ProjectileAI : Attack{
     public Sprite[] spriteArray;
     //
     [HideInInspector]
@@ -107,6 +107,11 @@ public class ProjectileAI : EnemyAI{
         }
 
         changeTarget(moveHere);
+    }
+
+    public override void attack()
+    {
+
     }
 }
 

@@ -3,21 +3,26 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class doorClose : MonoBehaviour {
-    public string doorString;
 
-    private GameObject[] doors;
+    public Transform previousRoom;
+
+    private Transform doorsParent;
 
     void Awake()
     {
-        doors = GameObject.FindGameObjectsWithTag(doorString);
+        doorsParent = previousRoom.transform.Find("Layout/Doors");
+        if (doorsParent == null) {
+            Debug.LogError("Could not find path Layout/Doors in " + previousRoom.name + " object.");
+        }
+
     }
+
     void OnTriggerEnter2D(Collider2D col)
     {
    
         if (col.gameObject.name == "Player")
         {
-            foreach (GameObject door in doors)
-                door.SetActive(true);
-        } 
+            doorsParent.gameObject.SetActive(true);
+        }
     }
 }
