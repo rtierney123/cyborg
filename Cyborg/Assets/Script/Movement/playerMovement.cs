@@ -60,7 +60,7 @@ public class playerMovement: MonoBehaviour
     void LateUpdate()
     {
         Flip();
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.DownArrow)|| Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.LeftArrow))
         {
             TestDirection();
      
@@ -108,11 +108,11 @@ public class playerMovement: MonoBehaviour
             count++;
             if (dir.Equals("lt"))
             {
-                bulletplace = new Vector3(transform.position.x-spriteWidth/2, transform.position.y, 0);
+                bulletplace = new Vector3(transform.position.x-spriteWidth/2, transform.position.y-(float).2, 0);
             }
             else if (dir.Equals("rt"))
             {
-                bulletplace = new Vector3(transform.position.x + spriteWidth / 2, transform.position.y,0);
+                bulletplace = new Vector3(transform.position.x + spriteWidth / 2, transform.position.y-(float).2,0);
             }
             else if (dir.Equals("tp"))
             {

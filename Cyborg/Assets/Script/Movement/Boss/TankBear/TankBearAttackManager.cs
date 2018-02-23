@@ -12,6 +12,7 @@ public class TankBearAttackManager : AttackManager {
 
     private TankChargeAttack charge;
     private BouncyProjectileAttack bouncy;
+    private BasicAI moveTowards;
     private Attack currentAttack;
 
     private int count;
@@ -22,6 +23,7 @@ public class TankBearAttackManager : AttackManager {
         currentAttack = charge;
         charge = gameObject.GetComponent<TankChargeAttack>();
         bouncy = gameObject.GetComponent<BouncyProjectileAttack>();
+        moveTowards = gameObject.GetComponent<BasicAI>();
     }
 	
 	// Update is called once per frame
@@ -36,7 +38,7 @@ public class TankBearAttackManager : AttackManager {
         {
             if (attackCount == 1)
             {
-                //StartCoroutine(DelayNextAttack());
+                delay = 5;
                 StartDelay();
                 currentAttack = charge;
                 changeAttack = false;
@@ -48,31 +50,17 @@ public class TankBearAttackManager : AttackManager {
             {
                 //StartCoroutine(DelayNextAttack());
                 StartDelay();
-                currentAttack = bouncy;
+                currentAttack = moveTowards;
                 changeAttack = false;
                 attackCount = 1;
                 count++;
-                Debug.Log("bouncy");
-                return bouncy;
+                Debug.Log("moveToward");
+                return moveTowards;
             }
         }
         return currentAttack;
         
     }
-    /*
-    IEnumerator DelayNextAttack()
-    {
-
-        yield return delay;
-
-        NextAttack();
-    }
-
-    public void NextAttack()
-    {
-        changeAttack = true;
-    }
-    */
    
 
     private void StartDelay()

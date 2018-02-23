@@ -22,10 +22,12 @@ public class TankChargeAttack : Attack {
         player = GameObject.Find("Player");
         chargeAttack = true;
         rb = gameObject.GetComponent<Rigidbody2D>();
+        
     }
 
     public override Vector2 move(Vector2 tan)
     {
+        setSpeed(40);
         CheckCharge();
         if (chargeAttack)
         {
