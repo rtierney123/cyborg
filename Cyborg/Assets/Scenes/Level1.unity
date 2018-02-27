@@ -1919,7 +1919,6 @@ GameObject:
   m_Component:
   - component: {fileID: 614642367}
   - component: {fileID: 614642366}
-  - component: {fileID: 614642365}
   m_Layer: 11
   m_Name: Floor
   m_TagString: Floor
@@ -1927,32 +1926,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!61 &614642365
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 61535256093029282, guid: bfa908df7ad67e5468c1c26109726b93,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 614642363}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
-    newSize: {x: 1, y: 1}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1}
-  m_EdgeRadius: 0
 --- !u!212 &614642366
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3641,11 +3614,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4435035345625146, guid: 94611f46e333543419f94537ffedcc1a, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 45.6
+      value: 61.3
       objectReference: {fileID: 0}
     - target: {fileID: 4435035345625146, guid: 94611f46e333543419f94537ffedcc1a, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -99.8
+      value: -142.6
       objectReference: {fileID: 0}
     - target: {fileID: 4435035345625146, guid: 94611f46e333543419f94537ffedcc1a, type: 2}
       propertyPath: m_LocalPosition.z
@@ -4597,7 +4570,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4730635525767080, guid: 6b456eb1cf61c354580f697e1a547ade, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 73.403595
+      value: 73.484
       objectReference: {fileID: 0}
     - target: {fileID: 4730635525767080, guid: 6b456eb1cf61c354580f697e1a547ade, type: 2}
       propertyPath: m_LocalPosition.y
@@ -4626,27 +4599,6 @@ Prefab:
     - target: {fileID: 4730635525767080, guid: 6b456eb1cf61c354580f697e1a547ade, type: 2}
       propertyPath: m_RootOrder
       value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 4730635525767080, guid: 6b456eb1cf61c354580f697e1a547ade, type: 2}
-      propertyPath: m_LocalScale.y
-      value: 0.5665663
-      objectReference: {fileID: 0}
-    - target: {fileID: 4730635525767080, guid: 6b456eb1cf61c354580f697e1a547ade, type: 2}
-      propertyPath: m_LocalScale.x
-      value: 3.9065375
-      objectReference: {fileID: 0}
-    - target: {fileID: 4244774137608160, guid: 6b456eb1cf61c354580f697e1a547ade, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: -0.0151
-      objectReference: {fileID: 0}
-    - target: {fileID: 4244774137608160, guid: 6b456eb1cf61c354580f697e1a547ade, type: 2}
-      propertyPath: m_LocalScale.x
-      value: -2.7022192
-      objectReference: {fileID: 0}
-    - target: {fileID: 114831833761164646, guid: 6b456eb1cf61c354580f697e1a547ade,
-        type: 2}
-      propertyPath: nextLevel
-      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6b456eb1cf61c354580f697e1a547ade, type: 2}

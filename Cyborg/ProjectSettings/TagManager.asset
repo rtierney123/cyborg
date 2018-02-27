@@ -17,6 +17,7 @@ TagManager:
   - enemyBullet
   - Room3Door
   - Door
+  - Elevator
   layers:
   - Default
   - TransparentFX

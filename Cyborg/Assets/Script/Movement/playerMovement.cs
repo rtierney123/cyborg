@@ -29,10 +29,12 @@ public class playerMovement: MonoBehaviour
     public bool triggered;
     public AudioSource projectileSound;
     public bool invincible;
+    public bool turnOffY;
     private Renderer rend;
 
     private bool allowDamage;
-
+    [HideInInspector]
+    public bool onlyX;
 
 
 
@@ -47,6 +49,8 @@ public class playerMovement: MonoBehaviour
         rend = GetComponent<Renderer>();
         rend.enabled = true;
         allowDamage = true;
+        turnOffY = false;
+        onlyX = false;
 
 
     }
@@ -87,8 +91,16 @@ public class playerMovement: MonoBehaviour
     {
         float moveHorizontal = Input.GetAxisRaw("Horizontal");
         float moveVertical = Input.GetAxisRaw("Vertical");
-
         Vector2 movement = new Vector3(moveHorizontal, moveVertical);
+        if (onlyX)
+        {
+            movement = new Vector2(moveHorizontal, 0);
+        } 
+        else
+        {
+            movement = new Vector3(moveHorizontal, moveVertical);
+        }
+        
 
         rb.velocity = movement * speed;
         
@@ -206,27 +218,6 @@ public class playerMovement: MonoBehaviour
     }
 
 
-    /*
-    void OnCollisionEnter2D(Collision2D collision)
-    {
-        GameObject healthBar = GameObject.Find("HealthBar");
-
-        if (collision.gameObject.tag == "Enemy" && healthBar.transform.childCount != 0)
-        {
-            Debug.Log("hit" + countHits);
-            Debug.Log(allowDamage);
-            countHits++;
-            if (allowDamage)
-            {
-                healthBar.GetComponent<HealthBarUI>().RemoveLife();
-                allowDamage = false;
-                StartCoroutine(DelayHits());
-            }
-            
-        }
-
-    }
-    */
 
     public float damageTimeout = 1f;
     private bool canTakeDamage = true;
@@ -248,6 +239,14 @@ public class playerMovement: MonoBehaviour
         canTakeDamage = false;
         yield return new WaitForSeconds(damageTimeout);
         canTakeDamage = true;
+    }
+
+    void OnTriggerEnter2D(Collider2D coll)
+    {
+        if (coll.gameObject.tag == "Elevator")
+        {
+            onlyX = true;
+        }
     }
 
 

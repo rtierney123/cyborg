@@ -12,6 +12,7 @@ public class ElevatorController : MonoBehaviour
     private GameObject player;
     private Rigidbody2D playerRB;
     private bool rise;
+    private GameObject door;
     // Use this for initialization
     void Start()
     {
@@ -20,6 +21,8 @@ public class ElevatorController : MonoBehaviour
         rb = gameObject.GetComponent<Rigidbody2D>();
         rb.gravityScale = 0;
         rise = false;
+        door = gameObject.transform.Find("EWall1").gameObject;
+        door.SetActive(false);
     }
 
     // Update is called once per frame
@@ -34,16 +37,16 @@ public class ElevatorController : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D coll)
     {
-        Debug.Log(coll.gameObject.tag);
         if (coll.gameObject.tag == "Player")
         {
+            player.transform.parent = gameObject.transform;
             Debug.Log("PLayer going up");
             playerRB.gravityScale = 1;
             Physics2D.gravity = new Vector2(0, 0);
             StartCoroutine(goUpElevator());
+            door.SetActive(true);
         }
     }
-
 
     private IEnumerator goUpElevator()
     {
