@@ -1,97 +1,78 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
+using Projectile.ObjectPooling;
 
-public class ProjectileAI : Attack{
+public class ProjectileAI : Attack
+{
+    /// <summary> The GameObject holding the bullet spawn point. </summary>
+    public Transform weaponRotation;
+    /// <summary> The point to spawn the bullets at. </summary>
+    public Transform bulletSpawn;
+    /// <summary> How often to shoot. </summary>
+    public float shootTime;
     public Sprite[] spriteArray;
-    //
-    [HideInInspector]
-    public Vector2 projectileDir;
-    public string direction;
+    
     //tests the possible gameobject targets for projectile
     private Transform[] possibleProjectilePos;
     private SpriteRenderer mySpriteRenderer;
     private GameObject player;
-    
+    /// <summary> Timer for tracking when to shoot. </summary>
+    private float shootTimer;
 
     private void Start()
     {
-        mySpriteRenderer = GetComponent<SpriteRenderer>();
-        player = GameObject.Find("Player");
-        possibleProjectilePos = player.GetComponentsInChildren<Transform>();
+        this.mySpriteRenderer = GetComponent<SpriteRenderer>();
+        this.player = GameObject.Find("Player");
+        this.possibleProjectilePos = player.GetComponentsInChildren<Transform>();
+        this.shootTimer = this.shootTime;
     }
-
 
     public override Vector2 move(Vector2 tan)
     {
-        Vector3 targetPosition = player.transform.position;
-        Vector3 currentPosition = transform.position;
-        Vector3 dirToPlayer = currentPosition - targetPosition;
-        
+        SetSprite();
+        PositionProjectileEnemy();
+        if((this.shootTimer -= Time.deltaTime) <= 0f)
+        {
+            FireBullet();
+            this.shootTimer = this.shootTime;
+        }
+
+        return getSpeed() * tan;
+    }
+
+    public override void updateSprites()
+    {
+    }
+
+    public override void attack()
+    {
+        FireBullet();
+    }
+
+    /// <summary> Thest the sprite based on aim direction. </summary>
+    private void SetSprite()
+    {
+        Vector3 dirToPlayer = transform.position - player.transform.position;
         float absx = Mathf.Abs(dirToPlayer.x);
         float absy = Mathf.Abs(dirToPlayer.y);
-        float x = dirToPlayer.x;
-        float y = dirToPlayer.y;
-
-        projectileDir = new Vector2();
-
-
-
         if (absx >= absy)
         {
-            projectileDir = new Vector2(-dirToPlayer.x, 0);
-            projectileDir = projectileDir.normalized;
-
-            if (projectileDir.x == 1)
-            {
-                direction = "rt";
-                mySpriteRenderer.flipX = false;
-                mySpriteRenderer.sprite = spriteArray[0];
-                PositionProjectileEnemy();
-            }
+            this.mySpriteRenderer.sprite = spriteArray[0];
+            if (-dirToPlayer.x == 1)
+                this.mySpriteRenderer.flipX = false;
             else
-            {
-                direction = "lt";
-                mySpriteRenderer.flipX = true;
-                mySpriteRenderer.sprite = spriteArray[0];
-                PositionProjectileEnemy();
-            }
-
-
+                this.mySpriteRenderer.flipX = true;
         }
         else
         {
-            projectileDir = new Vector2(0, -dirToPlayer.y);
-            projectileDir = projectileDir.normalized;
-
-            if (projectileDir.y == 1)
-            {
-                direction = "tp";
-                mySpriteRenderer.flipX = false;
-                mySpriteRenderer.sprite = spriteArray[1];
-                PositionProjectileEnemy();
-            }
+            this.mySpriteRenderer.flipX = false;
+            if (-dirToPlayer.y == 1)
+                this.mySpriteRenderer.sprite = spriteArray[1];
             else
-            {
-                direction = "bm";
-                mySpriteRenderer.flipX = false;
-                mySpriteRenderer.sprite = spriteArray[2];
-                PositionProjectileEnemy();
-            }
-
+                this.mySpriteRenderer.sprite = spriteArray[2];
         }
-        PositionProjectileEnemy();
-
-        return getSpeed() * tan;
-
-    }
-    public override void updateSprites()
-    {
-       
-
     }
 
-    void PositionProjectileEnemy()
+    private void PositionProjectileEnemy()
     {
         float dist = 0;
         float maxdist = 0;
@@ -109,9 +90,19 @@ public class ProjectileAI : Attack{
         changeTarget(moveHere);
     }
 
-    public override void attack()
+    /// <summary> Fires a bullet at the player. </summary>
+    private void FireBullet()
     {
-
+        Vector3 targetPos = player.transform.position;
+        float angle = Vector2.SignedAngle(Vector2.right, (targetPos - this.transform.position).normalized);
+        this.weaponRotation.rotation = Quaternion.Euler(0, 0, angle);
+        GameObject b = BulletPool.Instance.GetBullet(BulletPool.BulletTypes.Enemy);
+        if(b != null)
+        {
+            Debug.Log("A");
+            b.transform.position = this.bulletSpawn.position;
+            b.transform.rotation = this.bulletSpawn.rotation;
+        }
     }
 }
 
