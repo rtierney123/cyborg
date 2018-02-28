@@ -31,6 +31,9 @@ public class playerMovement: MonoBehaviour
     public bool invincible;
     private Renderer rend;
 
+    [HideInInspector]
+    public bool active;
+
     private bool allowDamage;
 
 
@@ -56,6 +59,7 @@ public class playerMovement: MonoBehaviour
         spriteWidth = mySpriteRenderer.bounds.size.x;
         spriteHeight = mySpriteRenderer.bounds.size.y;
         this.boxcollider = this.GetComponent<BoxCollider2D>();
+        active = true;
     }
     void LateUpdate()
     {
@@ -77,7 +81,7 @@ public class playerMovement: MonoBehaviour
             GameObject healthBar = GameObject.Find("HealthBar");
             if (healthBar.transform.childCount == 0 && invincible != true)
             {
-                gameObject.active =false;
+                gameObject.active = false;
                 rend.enabled = false;
             }
         }
@@ -90,7 +94,10 @@ public class playerMovement: MonoBehaviour
 
         Vector2 movement = new Vector3(moveHorizontal, moveVertical);
 
-        rb.velocity = movement * speed;
+        if (active)
+        {
+            rb.velocity = movement * speed;
+        }
         
     }
 
