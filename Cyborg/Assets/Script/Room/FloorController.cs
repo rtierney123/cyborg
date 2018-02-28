@@ -21,14 +21,15 @@ public class FloorController : MonoBehaviour {
         {
             enemies.gameObject.SetActive(true);
         }
-        /*
-        if (other.gameObject.tag == "Player" && !playerInRoom)
-        {
-            playerInRoom = true;
-            Debug.Log("Entering " + transform.name);
-            enemiesParent.gameObject.SetActive(true);
-            ClosePreviousRoomDoors();               
-        }
-        */
     }
+
+    public void OnChildTriggerEnter(Collider2D other)
+    {
+        if (other.gameObject.tag == "Player")
+        {
+            enemies.gameObject.SetActive(true);
+        }
+    }
+
+
 }
