@@ -102,7 +102,7 @@ MonoBehaviour:
   damage: 1
   lifeTime: 1
   type: 1
-  speed: 4
+  speed: 10
   rgbdy: {fileID: 50865489831960916}
 --- !u!212 &212956471247499850
 SpriteRenderer:

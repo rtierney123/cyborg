@@ -25,7 +25,7 @@
             }
         }
 
-        private void OnTriggerEnter2D(Collider2D collider)
+        private void OnCollisionEnter2D(Collision2D collider)
         {
             this.currentLifeTime = 0;
         }

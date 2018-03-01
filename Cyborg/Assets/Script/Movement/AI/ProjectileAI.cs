@@ -99,7 +99,6 @@ public class ProjectileAI : Attack
         GameObject b = BulletPool.Instance.GetBullet(BulletPool.BulletTypes.Enemy);
         if(b != null)
         {
-            Debug.Log("A");
             b.transform.position = this.bulletSpawn.position;
             b.transform.rotation = this.bulletSpawn.rotation;
         }

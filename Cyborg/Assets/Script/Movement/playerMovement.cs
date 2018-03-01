@@ -1,12 +1,17 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Projectile.ObjectPooling;
 
 
 
 public class playerMovement: MonoBehaviour
 {
-
+    /// <summary> The GameObject holding the bullet spawn point. </summary>
+    public Transform weaponRotation;
+    public Util.SpriteFlasher spriteFlasher;
+    /// <summary> The point to spawn the bullets at. </summary>
+    public Transform bulletSpawn;
     public float speed;
     public GameObject projectile;
     public Vector3 direction;
@@ -85,7 +90,7 @@ public class playerMovement: MonoBehaviour
             GameObject healthBar = GameObject.Find("HealthBar");
             if (healthBar.transform.childCount == 0 && invincible != true)
             {
-                gameObject.active = false;
+                gameObject.SetActive(false);
                 rend.enabled = false;
             }
         }
@@ -113,39 +118,36 @@ public class playerMovement: MonoBehaviour
         
     }
 
-
-
-
-
-
-
-
     void Fire()
     {
+        count++;
+        float angle = 0;
+        if (dir.Equals("lt"))
+        {
+            angle = Vector2.SignedAngle(Vector2.right, Vector2.left);
+        }
+        else if (dir.Equals("rt"))
+        {
+            angle = Vector2.SignedAngle(Vector2.right, Vector2.right);
+        }
+        else if (dir.Equals("tp"))
+        {
+            angle = Vector2.SignedAngle(Vector2.right, Vector2.up);
+        }
+        else if (dir.Equals("bm"))
+        {
+            angle = Vector2.SignedAngle(Vector2.right, Vector2.down);
+        }
 
-         
-            count++;
-            if (dir.Equals("lt"))
-            {
-                bulletplace = new Vector3(transform.position.x-spriteWidth/2, transform.position.y-(float).2, 0);
-            }
-            else if (dir.Equals("rt"))
-            {
-                bulletplace = new Vector3(transform.position.x + spriteWidth / 2, transform.position.y-(float).2,0);
-            }
-            else if (dir.Equals("tp"))
-            {
-                bulletplace = new Vector3(transform.position.x, transform.position.y+spriteHeight/2, 0);
-            }
-            else if (dir.Equals("bm"))
-            {
-                bulletplace = new Vector3(transform.position.x, transform.position.y-spriteHeight /2,1);
-            }
-        
-
-            Instantiate(projectile, bulletplace, Quaternion.identity);
-        
+        this.weaponRotation.rotation = Quaternion.Euler(0, 0, angle);
+        GameObject b = BulletPool.Instance.GetBullet(BulletPool.BulletTypes.Player);
+        if (b != null)
+        {
+            b.transform.position = this.bulletSpawn.position;
+            b.transform.rotation = this.bulletSpawn.rotation;
+        }
     }
+
     void Flip()
     {
         if (mySpriteRenderer != null)
@@ -236,9 +238,9 @@ public class playerMovement: MonoBehaviour
         if (collision.gameObject.tag == "Enemy" && healthBar.transform.childCount != 0 && canTakeDamage)
         {
             healthBar.GetComponent<HealthBarUI>().RemoveLife();
+            this.spriteFlasher.StartFlash();
             StartCoroutine(damageTimer());
         }
-
     }
 
     private IEnumerator damageTimer()
