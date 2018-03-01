@@ -36,7 +36,7 @@ public class projectileScriptforEnemy : MonoBehaviour {
     }
     void Fire()
     {
-        facingDirection = gameObject.GetComponent<ProjectileAI>().direction;
+        facingDirection = "lt";// gameObject.GetComponent<ProjectileAI>().direction;
         if (facingDirection == "lt")
         {
             bulletplace = new Vector3(transform.position.x - spriteWidth / 2-1, transform.position.y, 0);
@@ -53,7 +53,7 @@ public class projectileScriptforEnemy : MonoBehaviour {
         {
             bulletplace = new Vector3(transform.position.x, transform.position.y + spriteHeight / 2+1, 0);
         }
-        moveDirection = gameObject.GetComponent<ProjectileAI>().projectileDir;
+        moveDirection = Vector3.left;// gameObject.GetComponent<ProjectileAI>().projectileDir;
         var bullet = Instantiate(projectile, bulletplace, Quaternion.identity);
         bullet.transform.parent = this.gameObject.transform;
     }

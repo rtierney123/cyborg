@@ -60,6 +60,7 @@ GameObject:
   - component: {fileID: 114295796866078442}
   - component: {fileID: 114061205550933302}
   - component: {fileID: 114195504810499834}
+  - component: {fileID: 114513638403770766}
   m_Layer: 9
   m_Name: tech_erraticEnemy
   m_TagString: Enemy
@@ -418,6 +419,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0215e05cf3f75504d9ae53b4039d3ac5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spriteFlasher: {fileID: 114513638403770766}
   healthDrop: {fileID: 1884255959074350, guid: 31181bbca2a52b34d96a9193f7640a81, type: 2}
   deathCount: 1
 --- !u!114 &114195504810499834
@@ -461,6 +463,20 @@ MonoBehaviour:
   pickNextWaypointDist: 2
   endReachedDistance: 0.2
   alwaysDrawGizmos: 0
+--- !u!114 &114513638403770766
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1708991816317440}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 560ea890d3111b14985155644f1a9ae5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  invulnerabilityTime: 0.5
+  flashInterval: 0.09
+  sprite: {fileID: 212124846895306722}
 --- !u!114 &114571588000903488
 MonoBehaviour:
   m_ObjectHideFlags: 1
