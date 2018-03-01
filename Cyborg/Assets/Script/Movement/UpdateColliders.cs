@@ -13,7 +13,7 @@ public class UpdateColliders : MonoBehaviour {
     public GameObject ltCol;
     
 
-    private void Start()
+    private void Awake()
     {
         tpCol = this.transform.Find("tpCol").gameObject;
         bmCol = this.transform.Find("bmCol").gameObject;

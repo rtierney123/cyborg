@@ -17,6 +17,7 @@ TagManager:
   - enemyBullet
   - Room3Door
   - Door
+  - Elevator
   layers:
   - Default
   - TransparentFX
@@ -56,6 +57,9 @@ TagManager:
     locked: 0
   - name: OntopofFloor
     uniqueID: 4197772617
+    locked: 0
+  - name: wall
+    uniqueID: 1868975091
     locked: 0
   - name: player
     uniqueID: 1303668085
