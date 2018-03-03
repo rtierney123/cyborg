@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class followPlayer : MonoBehaviour {
+public class FollowPlayer : MonoBehaviour {
 
     void Update()
     {

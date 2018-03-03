@@ -18,6 +18,7 @@ TagManager:
   - Room3Door
   - Door
   - Elevator
+  - Heal
   layers:
   - Default
   - TransparentFX

@@ -36,6 +36,10 @@ public class playerMovement: MonoBehaviour
     public bool invincible;
     public bool turnOffY;
     private Renderer rend;
+    private AudioSource audio;
+    public AudioClip shootClip;
+    public AudioClip healClip;
+    public AudioClip dieClip;
 
     [HideInInspector]
     public bool active;
@@ -49,7 +53,7 @@ public class playerMovement: MonoBehaviour
     // Use this for initialization
     void Awake()
     {
-        player = GameObject.Find("Player");
+        player = gameObject;
         rtFace = true;
         horzFace = true;
         mySpriteRenderer = GetComponent<SpriteRenderer>();
@@ -59,8 +63,7 @@ public class playerMovement: MonoBehaviour
         allowDamage = true;
         turnOffY = false;
         onlyX = false;
-
-
+        audio = GetComponent<AudioSource>();
     }
     void Start()
     {
@@ -76,7 +79,8 @@ public class playerMovement: MonoBehaviour
         if (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.DownArrow)|| Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.LeftArrow))
         {
             TestDirection();
-     
+            audio.clip = shootClip;
+            audio.Play();
             Fire();
             
         }
@@ -90,6 +94,8 @@ public class playerMovement: MonoBehaviour
             GameObject healthBar = GameObject.Find("HealthBar");
             if (healthBar.transform.childCount == 0 && invincible != true)
             {
+                audio.clip = dieClip;
+                audio.Play();
                 gameObject.SetActive(false);
                 rend.enabled = false;
             }
@@ -120,7 +126,6 @@ public class playerMovement: MonoBehaviour
 
     void Fire()
     {
-        count++;
         float angle = 0;
         if (dir.Equals("lt"))
         {
@@ -256,8 +261,13 @@ public class playerMovement: MonoBehaviour
         {
             onlyX = true;
         }
-    }
 
+        if (coll.gameObject.tag == "Heal")
+        {
+            audio.clip = healClip;
+            audio.Play();
+        }
+    }
 
 }
 
