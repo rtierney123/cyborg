@@ -43,7 +43,6 @@ public class TankBearAttackManager : AttackManager {
                 currentAttack = charge;
                 changeAttack = false;
                 attackCount++;
-                Debug.Log("charge");
                 return charge;
             } 
             else
@@ -54,7 +53,6 @@ public class TankBearAttackManager : AttackManager {
                 changeAttack = false;
                 attackCount = 1;
                 count++;
-                Debug.Log("moveToward");
                 return moveTowards;
             }
         }

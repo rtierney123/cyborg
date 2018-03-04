@@ -1,89 +1,79 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
-public class RoomManager : MonoBehaviour {
-    public int roomnum;
-
-    public Transform previousRoom;
-    private Transform doorsPreviousParent;
-    
-    private Transform doorsParent;
-    private Transform enemiesParent;
-    private bool firstopen;
-    private bool playerInRoom;
-    void Awake()
+namespace Rooms
+{
+    public class RoomManager : MonoBehaviour
     {
-        playerInRoom = (roomnum == 1);
 
-        doorsParent = transform.Find("Layout/Doors");
+        //array of all doors to open and close based on if the room is cleared or full
+        public Transform[] doors;
+        //parent with enemy children
+        public Transform enemiesParent;
+        //gameobject that has collider trigger that starts enemies and closes doors when player in room
+        public GameObject roomTrigger;
       
-        if (doorsParent == null) {
-            Debug.LogError("Could not find path Layout/Doors in " + transform.name + " object.");
-        }
 
-        enemiesParent = transform.Find("Enemies");
-        if (enemiesParent == null) {
-            Debug.LogError("Could not find path Enemies in " + transform.name + " object.");
-        }
-        /*
-        if (!playerInRoom) {
-            enemiesParent.gameObject.SetActive(false);
-        }
-        */
-        enemiesParent.gameObject.SetActive(false);
-        GetPreviousRoomDoors();
-             
-        firstopen = true;
-    }
-	// Update is called once per frame
-	void Update () {
-        if (enemiesParent.childCount==0)
+        //starts with false unil all enemies are killed
+        private bool roomCleared;
+        //keeps track if the player has entered the room for the first time
+        private bool justEntered;
+        //script with trigger bool
+        private FloorTrigger trigger;
+       
+        private void Start()
         {
-            if (firstopen)
+            if (enemiesParent.childCount != 0)
             {
-                doorsParent.gameObject.SetActive(false);
-                firstopen = false;
+                foreach (Transform door in doors)
+                {
+                    door.gameObject.SetActive(true);
+                }
             }
+            enemiesParent.gameObject.SetActive(false);
+
+            roomCleared = false;
+            justEntered = true;
+          
+            if (roomTrigger == null)
+            {
+                Debug.Log("Must have roomTrigger.");
+            }
+            trigger = roomTrigger.GetComponent<FloorTrigger>();
+            if (trigger == null)
+            {
+                Debug.Log("Must have FloorTrigger on roomTrigger GameObject");
+            }
+            
+       
         }
 
-    }
-
-    void OnTriggerEnter2D(Collider2D other)
-    {
-        
-        if (other.gameObject.tag == "Player")
+        // Update is called once per frame
+        void Update()
         {
-            playerInRoom = true;
-            Debug.Log("Entering " + transform.name);
-            //enemiesParent.gameObject.SetActive(true);
-            ClosePreviousRoomDoors();
-        }
-        /*
-        if (other.gameObject.tag == "Player" && !playerInRoom)
-        {
-            playerInRoom = true;
-            Debug.Log("Entering " + transform.name);
-            enemiesParent.gameObject.SetActive(true);
-            ClosePreviousRoomDoors();               
-        }
-        */
-    }
-
-    void GetPreviousRoomDoors() {
-        if (previousRoom != null) {
-            doorsPreviousParent = previousRoom.transform.Find("Layout/Doors");
-            if (doorsPreviousParent == null) {
-                Debug.LogError("Could not find path Layout/Doors in " + previousRoom.name + " object.");
+            
+            if (trigger.inRoom && justEntered)
+            {
+                enemiesParent.gameObject.SetActive(true);
+                foreach (Transform door in doors)
+                {
+                    door.gameObject.SetActive(true);
+                }
+                justEntered = false;
             } 
-        } else if (roomnum != 1){
-            Debug.Log("Previous room reference not found, but current room not marked as first");
+            
+            if (enemiesParent.childCount == 0 && !roomCleared)
+            {
+                foreach (Transform door in doors)
+                {
+                    door.gameObject.SetActive(false);
+                    roomCleared = true;
+                }
+            }
+            
         }
     }
 
-    void ClosePreviousRoomDoors() {
-        if (doorsPreviousParent != null) {
-            doorsPreviousParent.gameObject.SetActive(true);
-        }
-    }
+
+
 }

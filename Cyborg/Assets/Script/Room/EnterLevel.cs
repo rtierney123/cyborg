@@ -1,22 +1,30 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
-public class EnterLevel : MonoBehaviour {
-    private GameObject player;
-    private playerMovement script;
-	// Use this for initialization
-	void Start () {
-        player = GameObject.Find("Player");
-        script = player.GetComponent<playerMovement>();
-	}
-
-    void OnTriggerEnter2D(Collider2D coll)
+namespace Rooms
+{
+    public class EnterLevel : MonoBehaviour
     {
-        Debug.Log("Entering level.");
-        if (coll.gameObject.tag == "Player")
+        public Transform startDoor;
+
+        private GameObject player;
+        private playerMovement script;
+        // Use this for initialization
+        void Start()
         {
-            script.onlyX = false;
+            player = GameObject.Find("Player");
+            script = player.GetComponent<playerMovement>();
+        }
+
+        void OnTriggerEnter2D(Collider2D coll)
+        {
+            Debug.Log("Entering level.");
+            if (coll.gameObject.tag == "Player")
+            {
+                script.onlyX = false;
+            }
+            startDoor.gameObject.SetActive(false);
         }
     }
 }
+

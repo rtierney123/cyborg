@@ -1,35 +1,34 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
-public class FloorController : MonoBehaviour {
-    private Transform parent;
-    private Transform enemies;
-
-    private void Start()
+namespace Rooms
+{
+    public class FloorController : MonoBehaviour
     {
-        parent = gameObject.transform.parent;
-        enemies = parent.Find("Enemies");
-        if (enemies == null)
-        {
-            Debug.LogError("Could not find path Enemies in " + transform.name + " object.");
-        }
-    }
-    void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other.gameObject.tag == "Player")
-        {
-            enemies.gameObject.SetActive(true);
-        }
-    }
+        private Transform parent;
+        private Transform enemies;
 
-    public void OnChildTriggerEnter(Collider2D other)
-    {
-        if (other.gameObject.tag == "Player")
+        private void Start()
         {
-            enemies.gameObject.SetActive(true);
+           
         }
+        void OnTriggerEnter2D(Collider2D other)
+        {
+            if (other.gameObject.tag == "Player")
+            {
+                enemies.gameObject.SetActive(true);
+            }
+        }
+
+        public void OnChildTriggerEnter(Collider2D other)
+        {
+            if (other.gameObject.tag == "Player")
+            {
+                enemies.gameObject.SetActive(true);
+            }
+        }
+
+
     }
-
-
 }
+

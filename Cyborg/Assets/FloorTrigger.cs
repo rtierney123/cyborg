@@ -1,18 +1,26 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
-public class FloorTrigger : MonoBehaviour {
-
-    private FloorController parent;
-
-    void Start()
+namespace Rooms
+{
+    public class FloorTrigger : MonoBehaviour
     {
-        parent = transform.parent.GetComponent<FloorController>();
-    }
 
-    void OnTriggerEnter2D(Collider2D aCol)
-    {
-       parent.OnChildTriggerEnter(aCol); 
+        [HideInInspector]
+        public bool inRoom;
+
+        private void Start()
+        {
+            inRoom = false;
+        }
+
+        void OnTriggerEnter2D(Collider2D aCol)
+        {
+            if (aCol.gameObject.tag == "Player")
+            {
+                inRoom = true;
+            }
+        }
     }
 }
+

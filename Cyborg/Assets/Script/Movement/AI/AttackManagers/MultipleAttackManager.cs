@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-namespace Manager
+namespace Enemy
 {
     public class MultipleAttackManager : AttackManager
     {
