@@ -27,6 +27,7 @@ GameObject:
   - component: {fileID: 114286622199355844}
   - component: {fileID: 114715922091665782}
   - component: {fileID: 114186362202094024}
+  - component: {fileID: 114751571590416018}
   m_Layer: 9
   m_Name: multiply_enemy_large
   m_TagString: Enemy
@@ -41,8 +42,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1105558475138348}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 7.43, y: -1.06, z: 1}
-  m_LocalScale: {x: 2, y: 2, z: 1}
+  m_LocalPosition: {x: 0.15271091, y: -0.20093864, z: 1}
+  m_LocalScale: {x: 0.098554574, y: 0.13231762, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -186,10 +187,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13f1ed142e808144fa83d62d682a80c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spriteFlasher: {fileID: 114751571590416018}
   healthDrop: {fileID: 1884255959074350, guid: 31181bbca2a52b34d96a9193f7640a81, type: 2}
   offspring: {fileID: 1960874377540996, guid: 07d4f26d5d90c6a4893f5866c547a81c, type: 2}
   hitPoints: 8
   multiply_number: 2
+--- !u!114 &114751571590416018
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1105558475138348}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 560ea890d3111b14985155644f1a9ae5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  invulnerabilityTime: 0.2
+  flashInterval: 0.09
+  sprite: {fileID: 212016011205522988}
 --- !u!212 &212016011205522988
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -222,7 +238,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1303668085
-  m_SortingLayer: 2
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 056bc3efa7baa234db1a76f6e2b99829, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
