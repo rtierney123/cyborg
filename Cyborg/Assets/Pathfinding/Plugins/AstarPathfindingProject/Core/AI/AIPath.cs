@@ -155,8 +155,11 @@ public class AIPath : AIBase {
         if (this.interpolator.tangent != null)
         {
            rb.velocity = attack.move(this.interpolator.tangent);
-        }
-        
+        }        
+    }
+
+    private new void Update()
+    {
         attack.updateSprites();
     }
 
