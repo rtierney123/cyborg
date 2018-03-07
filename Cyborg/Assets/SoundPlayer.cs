@@ -1,4 +1,4 @@
-﻿namespace ShiftingDungeon.Util
+﻿namespace Manager
 {
     using UnityEngine;
 
@@ -46,6 +46,26 @@
             PlaySong(index);
             audio.pitch = Random.Range(1f - range, 1f + range);
         }
+
+        public void PlayShoot()
+        {
+            PlaySong(0);
+        }
+
+        public void PlayHit()
+        {
+            PlaySong(1);
+        }
+
+        public void PlayHeal()
+        {
+            PlaySong(2);
+        } 
+
+        public void PlayDie()
+        {
+            PlaySong(3);
+        } 
 
         public void Pause()
         {

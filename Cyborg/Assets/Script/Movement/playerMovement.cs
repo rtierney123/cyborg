@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Projectile.ObjectPooling;
-
+using Manager;
 
 
 public class playerMovement: MonoBehaviour
@@ -32,14 +32,12 @@ public class playerMovement: MonoBehaviour
     private float spriteHeight;
     public int count;
     public bool triggered;
-    public AudioSource projectileSound;
     public bool invincible;
     public bool turnOffY;
     private Renderer rend;
-    //private AudioSource audio;
-    //public AudioClip shootClip;
-    //public AudioClip healClip;
-    //public AudioClip dieClip;
+
+    [SerializeField]
+    public SoundPlayer sfx;
 
     [HideInInspector]
     public bool active;
@@ -63,7 +61,6 @@ public class playerMovement: MonoBehaviour
         allowDamage = true;
         turnOffY = false;
         onlyX = false;
-        //audio = GetComponent<AudioSource>();
     }
     void Start()
     {
@@ -79,8 +76,7 @@ public class playerMovement: MonoBehaviour
         if (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.DownArrow)|| Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.LeftArrow))
         {
             TestDirection();
-            //audio.clip = shootClip;
-            //audio.Play();
+            sfx.PlayShoot();
             Fire();
             
         }
@@ -94,8 +90,7 @@ public class playerMovement: MonoBehaviour
             GameObject healthBar = GameObject.Find("HealthBar");
             if (healthBar.transform.childCount == 0 && invincible != true)
             {
-                //audio.clip = dieClip;
-                //audio.Play();
+                sfx.PlayDie();
                 gameObject.SetActive(false);
                 rend.enabled = false;
             }
@@ -264,8 +259,7 @@ public class playerMovement: MonoBehaviour
 
         if (coll.gameObject.tag == "Heal")
         {
-            //audio.clip = healClip;
-            //audio.Play();
+            sfx.PlayHeal();
         }
     }
 
