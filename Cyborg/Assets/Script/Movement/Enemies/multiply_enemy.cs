@@ -8,7 +8,11 @@ public class multiply_enemy : MonoBehaviour
     public int hitPoints;
     public int multiply_number;
     private int hitCount;
-
+    public Transform enemyParent;
+    private void Start()
+    {
+        enemyParent = gameObject.transform.parent;
+    }
     void OnCollisionEnter2D(Collision2D coll)
     {
         if (coll.gameObject.tag == "Bullet")
@@ -20,19 +24,19 @@ public class multiply_enemy : MonoBehaviour
                 {
                     for (int i = 0; i < multiply_number; i++)
                     {
-                        Instantiate(offspring, transform.position, Quaternion.identity);
+                        Instantiate(offspring, transform.position, Quaternion.identity, enemyParent);
                     }
                     Destroy(this.gameObject);
                     float randomNumber = Random.Range(0, 100);
                     if (randomNumber < 20)
                     {
                         Instantiate(healthDrop, transform.position, Quaternion.identity);
-
                     }
                 }
                 else
                     this.spriteFlasher.StartFlash();
             }
         }
+      
     }
 }
