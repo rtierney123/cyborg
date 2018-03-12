@@ -158,7 +158,7 @@ public class AIPath : AIBase {
         }        
     }
 
-    private new void Update()
+    private void LateUpdate()
     {
         if (attack!= null)
         {

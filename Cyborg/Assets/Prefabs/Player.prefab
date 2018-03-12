@@ -40,7 +40,6 @@ GameObject:
   - component: {fileID: 212784420171142526}
   - component: {fileID: 61297822240724928}
   - component: {fileID: 114291061217346288}
-  - component: {fileID: 82192799706121692}
   m_Layer: 8
   m_Name: Player
   m_TagString: Player
@@ -169,7 +168,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1225203835927254}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -72.2, y: -23.3, z: 0}
+  m_LocalPosition: {x: 1.8005362, y: -0.4088304, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 1}
   m_Children:
   - {fileID: 4634670511843812}
@@ -212,7 +211,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1037882774628744}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -290,86 +289,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.9612635, y: 0.9992561}
   m_EdgeRadius: 0
---- !u!82 &82192799706121692
-AudioSource:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1225203835927254}
-  m_Enabled: 1
-  serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
-  m_Volume: 1
-  m_Pitch: 1
-  Loop: 0
-  Mute: 0
-  Spatialize: 0
-  SpatializePostEffects: 0
-  Priority: 128
-  DopplerLevel: 1
-  MinDistance: 1
-  MaxDistance: 500
-  Pan2D: 0
-  rolloffMode: 0
-  BypassEffects: 0
-  BypassListenerEffects: 0
-  BypassReverbZones: 0
-  rolloffCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 2
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    - serializedVersion: 2
-      time: 1
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  panLevelCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 2
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 0
-  spreadCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 2
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  reverbZoneMixCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 2
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 0
 --- !u!114 &114291061217346288
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -400,20 +319,20 @@ MonoBehaviour:
   bulletSpawn: {fileID: 4427414357432356}
   speed: 30
   projectile: {fileID: 1027195794295514, guid: 741a625fa9b150c49b7e7fda52d33abd, type: 2}
-  direction: {x: 0, y: 0, z: 0}
+  direction: {x: 1, y: 0, z: 0}
   playerPos: {x: 0, y: 0}
   spritArray:
   - {fileID: 21300000, guid: 2a18239cb22c2eb41a6f5f1e0a9f5f8e, type: 3}
   - {fileID: 21300000, guid: c3cb7781367b6fd4698bb7857e9455df, type: 3}
   - {fileID: 21300000, guid: e66416ea2390d884aa3d406d38b708f3, type: 3}
   change: 1
-  boxcollider: {fileID: 0}
+  boxcollider: {fileID: 61350980918051696}
   count: 0
   triggered: 0
-  invincible: 0
+  invincible: 1
   turnOffY: 0
   sfx: {fileID: 0}
-  active: 0
+  active: 1
   onlyX: 0
   damageTimeout: 1
 --- !u!212 &212784420171142526
