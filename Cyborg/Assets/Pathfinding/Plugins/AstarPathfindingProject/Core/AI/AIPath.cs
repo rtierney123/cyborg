@@ -160,7 +160,11 @@ public class AIPath : AIBase {
 
     private new void Update()
     {
-        attack.updateSprites();
+        if (attack!= null)
+        {
+            attack.updateSprites();
+        }
+        
     }
 
 

@@ -42,8 +42,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1960874377540996}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 4.82, y: 0.34, z: 1}
-  m_LocalScale: {x: 1.5, y: 1.5, z: 1}
+  m_LocalPosition: {x: 1.357936, y: 1.2299783, z: 1}
+  m_LocalScale: {x: 0.08212882, y: 0.12404829, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -104,6 +104,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5406d8e66c1d8824a8cbca2c97619336, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  attacks: []
   delay: 0
 --- !u!114 &114225499313726428
 MonoBehaviour:
@@ -164,6 +165,7 @@ MonoBehaviour:
   offspring: {fileID: 1541935546377700, guid: 93e55aafc5436a24683154379315a75a, type: 2}
   hitPoints: 4
   multiply_number: 3
+  enemyParent: {fileID: 0}
 --- !u!114 &114670473848393752
 MonoBehaviour:
   m_ObjectHideFlags: 1
