@@ -69,7 +69,7 @@ public class PuffAttackAI : Attack {
     {
         if (expanding)
         {
-            transform.localScale += new Vector3(puffAmount, puffAmount, 0) * Time.deltaTime;
+            transform.localScale += new Vector3(puffAmount * transform.localScale.x, puffAmount * transform.localScale.y, 0) * Time.deltaTime;
             Color c = GetComponent<SpriteRenderer>().color;
             c.g -= Time.deltaTime * 3;
             if (c.g < 0)
@@ -79,7 +79,7 @@ public class PuffAttackAI : Attack {
             GetComponent<SpriteRenderer>().color = new Color(c.r, c.b, c.g);
         } else if (shrinking)
         {
-            transform.localScale -= new Vector3(puffAmount, puffAmount, 0) * Time.deltaTime;
+            transform.localScale -= new Vector3(puffAmount * transform.localScale.x, puffAmount * transform.localScale.y, 0) * Time.deltaTime;
             Color c = GetComponent<SpriteRenderer>().color;
             c.g += Time.deltaTime * 3;
             if (c.g > 255)

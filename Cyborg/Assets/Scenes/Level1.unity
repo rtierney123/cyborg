@@ -3352,7 +3352,11 @@ Prefab:
         type: 2}
       propertyPath: sfx
       value: 
+<<<<<<< HEAD
+      objectReference: {fileID: 2045560037}
+=======
       objectReference: {fileID: 1775296613}
+>>>>>>> caaf25215b3b89196cccd3a7b3bfce10f89703a1
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 94611f46e333543419f94537ffedcc1a, type: 2}
   m_IsPrefabParent: 0
@@ -5518,7 +5522,11 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
+<<<<<<< HEAD
+  m_RootOrder: 1
+=======
   m_RootOrder: 2
+>>>>>>> caaf25215b3b89196cccd3a7b3bfce10f89703a1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1544087805
 MonoBehaviour:
@@ -7094,6 +7102,12 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b765281464cf04848862b277b8000f9a, type: 2}
   m_IsPrefabParent: 0
+--- !u!114 &2045560037 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114093077804133366, guid: b765281464cf04848862b277b8000f9a,
+    type: 2}
+  m_PrefabInternal: {fileID: 2045560036}
+  m_Script: {fileID: 11500000, guid: d1aee47b865df0446bb2cc75457e6448, type: 3}
 --- !u!1 &2062835880
 GameObject:
   m_ObjectHideFlags: 0
