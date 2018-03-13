@@ -22,7 +22,8 @@ public class TankBearAttackManager : AttackManager {
         attackCount = 1;
         currentAttack = charge;
         charge = gameObject.GetComponent<TankChargeAttack>();
-        cannon = gameObject.GetComponent<TankDoubleCannon>();
+        //cannon = gameObject.GetComponent<TankDoubleCannon>();
+        moveTowards = gameObject.GetComponent<BasicAI>();
     }
 	
 	// Update is called once per frame
@@ -48,11 +49,11 @@ public class TankBearAttackManager : AttackManager {
             {
                 //StartCoroutine(DelayNextAttack());
                 StartDelay();
-                currentAttack = cannon;
+                currentAttack = moveTowards;
                 changeAttack = false;
                 attackCount = 1;
                 count++;
-                return cannon;
+                return moveTowards;
             }
         }
         return currentAttack;
