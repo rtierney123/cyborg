@@ -8,7 +8,7 @@ public class multiply_enemy : MonoBehaviour
     public int hitPoints;
     public int multiply_number;
     private int hitCount;
-    private Transform enemyParent;
+    public Transform enemyParent;
     private void Start()
     {
         enemyParent = gameObject.transform.parent;
