@@ -261,6 +261,17 @@ public class playerMovement: MonoBehaviour
         {
             sfx.PlayHeal();
         }
+        
+        if (coll.gameObject.tag == "Enemy")
+        {
+            GameObject healthBar = GameObject.Find("HealthBar");
+            if (healthBar.transform.childCount != 0 && canTakeDamage)
+            {
+                healthBar.GetComponent<HealthBarUI>().RemoveLife();
+                this.spriteFlasher.StartFlash();
+                StartCoroutine(damageTimer());
+            }
+        }
     }
 
 }

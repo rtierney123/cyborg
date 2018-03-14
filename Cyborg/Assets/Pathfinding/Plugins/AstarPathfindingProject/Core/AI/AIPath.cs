@@ -163,6 +163,7 @@ public class AIPath : AIBase {
         if (attack!= null)
         {
             attack.updateSprites();
+            attack.attack();
         }
         
     }
