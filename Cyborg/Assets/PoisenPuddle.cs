@@ -50,4 +50,9 @@ public class PoisenPuddle : Attack {
             b.transform.rotation = puddleLocation.rotation;
         }
     }
+
+    private void LateUpdate()
+    {
+        attack();
+    }
 }

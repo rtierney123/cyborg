@@ -104,6 +104,7 @@ MonoBehaviour:
   type: 0
   speed: 50
   rgbdy: {fileID: 50243287465202724}
+  hasRB: 1
 --- !u!212 &212310274154007354
 SpriteRenderer:
   m_ObjectHideFlags: 1
