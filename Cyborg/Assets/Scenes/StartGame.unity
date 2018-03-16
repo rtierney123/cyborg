@@ -817,6 +817,56 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1291556327
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4585181854955612, guid: b765281464cf04848862b277b8000f9a, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 30.63336
+      objectReference: {fileID: 0}
+    - target: {fileID: 4585181854955612, guid: b765281464cf04848862b277b8000f9a, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: -13.095504
+      objectReference: {fileID: 0}
+    - target: {fileID: 4585181854955612, guid: b765281464cf04848862b277b8000f9a, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4585181854955612, guid: b765281464cf04848862b277b8000f9a, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4585181854955612, guid: b765281464cf04848862b277b8000f9a, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4585181854955612, guid: b765281464cf04848862b277b8000f9a, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4585181854955612, guid: b765281464cf04848862b277b8000f9a, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4585181854955612, guid: b765281464cf04848862b277b8000f9a, type: 2}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1288862514768654, guid: b765281464cf04848862b277b8000f9a, type: 2}
+      propertyPath: m_Name
+      value: GameManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 4316219567855994, guid: b765281464cf04848862b277b8000f9a, type: 2}
+      propertyPath: m_RootOrder
+      value: 15
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: b765281464cf04848862b277b8000f9a, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &1430030255
 GameObject:
   m_ObjectHideFlags: 0
@@ -1284,12 +1334,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: feb9c582cea857e4baeec05fe1a9bae8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  triggerType: 0
   dialogue:
     name: Clyde Burg
     sentences:
     - Please don't its nice here.
     - Don't be dick.
     - FML
+  dialogUI: {fileID: 0}
 --- !u!1 &2039595106
 GameObject:
   m_ObjectHideFlags: 0
@@ -1319,6 +1371,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nameText: {fileID: 599049750}
   dialogText: {fileID: 1096108405}
+  dialogBackgroundImage: {fileID: 551971682}
+  dialogHeadImage: {fileID: 737674255}
+  dialogNextButton: {fileID: 0}
 --- !u!4 &2039595108
 Transform:
   m_ObjectHideFlags: 0

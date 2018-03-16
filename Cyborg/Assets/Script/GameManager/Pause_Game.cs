@@ -5,28 +5,73 @@ using UnityEngine;
 public class Pause_Game : MonoBehaviour
 {
 
-    private bool pause;
+    private bool pauseButton;
+    private bool dialogPause;
+
     private void Start()
     {
-        pause = false;
+        pauseButton = false;
+        dialogPause = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.P))
+        //Adjusts the status of the pause button
+        if(Input.GetKeyDown(KeyCode.P))
         {
-            if (Time.timeScale == 1)
+            PauseButton = !PauseButton;
+        }
+
+        //Time will come to a stop if the game has not been manually paused, AND the game has not been force paused by dialogue.
+        if (MasterPause)
+        {
+            Time.timeScale = 0;
+        }
+        else
+        {
+            Time.timeScale = 1;
+        }
+    }
+
+    //This will return that the game is paused either if the player has manually paused the game, 
+    // or if it has been force-paused by dialog pop-ups.
+    public bool MasterPause
+    {
+        get
+        {
+            if (PauseButton || DialogPause)
             {
-                Time.timeScale = 0;
-     
+                return true;
             }
-            else if (Time.timeScale == 0)
+            else
             {
-                Debug.Log("high");
-                Time.timeScale = 1;
-              
+                return false;
             }
+        }
+    }
+
+    public bool PauseButton
+    {
+        get
+        {
+            return pauseButton;
+        }
+        set
+        {
+            pauseButton = value;
+        }
+    }
+
+    public bool DialogPause
+    {
+        get
+        {
+            return dialogPause;
+        }
+        set
+        {
+            dialogPause = value;
         }
     }
 }
