@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using Manager;
 
 public class enemy : MonoBehaviour
 {
@@ -8,6 +9,14 @@ public class enemy : MonoBehaviour
 
     private int hitCount;
 
+    [SerializeField]
+    public SoundPlayer sfx;
+
+    private void Start()
+    {
+        sfx = GameObject.Find("SoundManager").GetComponent<SoundPlayer>();
+    }
+
     void OnCollisionEnter2D(Collision2D coll)
     {
         if (coll.gameObject.tag == "Bullet")
@@ -15,6 +24,7 @@ public class enemy : MonoBehaviour
             if (!this.spriteFlasher.IsInvicible())
             {
                 this.hitCount++;
+                sfx.PlayEnemyHit();
                 if (this.deathCount == this.hitCount)
                 {
                     Destroy(this.gameObject);

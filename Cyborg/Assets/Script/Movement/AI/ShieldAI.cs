@@ -25,12 +25,24 @@ public class ShieldAI : Attack {
     private State state;
     private Direction dir;
     private float startChargeTime;
+    private Transform shield;
+    private Transform upLoc;
+    private Transform downLoc;
+    private Transform rightLoc;
+    private Transform leftLoc;
+    private SpriteRenderer shieldSprite;
 
     public void Start()
     {
         state = State.moving;
         target = GameObject.Find("Player");
         attacking = false;
+        shield = transform.GetChild(0);
+        shieldSprite = shield.GetComponent<SpriteRenderer>();
+        upLoc = transform.GetChild(1);
+        downLoc = transform.GetChild(2);
+        rightLoc = transform.GetChild(3);
+        leftLoc = transform.GetChild(4);
     }
 
     public override Vector2 move(Vector2 tan)
@@ -41,19 +53,27 @@ public class ShieldAI : Attack {
             if (tan.x > 0)
             {
                 dir = Direction.right;
+                shield.position = rightLoc.position;
+                shieldSprite.sortingLayerName = spriteRenderer.sortingLayerName;
             } else
             {
                 dir = Direction.left;
+                shield.position = leftLoc.position;
+                shieldSprite.sortingLayerName = spriteRenderer.sortingLayerName;
             }
         } else
         {
             if (tan.y > 0)
             {
                 dir = Direction.up;
+                shield.position = upLoc.position;
+                shieldSprite.sortingLayerName = "wall";
             }
             else
             {
                 dir = Direction.down;
+                shield.position = downLoc.position;
+                shieldSprite.sortingLayerName = spriteRenderer.sortingLayerName;
             }
         }
         UpdateState();
@@ -162,11 +182,26 @@ public class ShieldAI : Attack {
     public override void attack()
     {
         //Vector2 dir = (Vector2)(Quaternion.Euler(0, 0, degree) * Vector2.right);
-
+        /*
         Vector3 towardTarget = (target.transform.position - projectileSpawner.position).normalized;
         float angle = Vector3.Angle(Vector3.right, towardTarget);
         if (towardTarget.y < 0) {
              angle = -angle;
+        }
+        */
+        float angle;
+        if (dir == Direction.up)
+        {
+            angle = 90;
+        } else if (dir == Direction.down)
+        {
+            angle = 270; 
+        } else if (dir == Direction.right)
+        {
+            angle = 0;
+        } else
+        {
+            angle = 180;
         }
 
         for (int i = -shotSpread; i <= shotSpread; i += shotSpread)

@@ -6994,6 +6994,11 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 114093077804133366, guid: b765281464cf04848862b277b8000f9a,
+        type: 2}
+      propertyPath: song.Array.size
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 4585181854955612, guid: b765281464cf04848862b277b8000f9a, type: 2}
       propertyPath: m_LocalPosition.x
       value: 30.63336
@@ -7030,6 +7035,16 @@ Prefab:
       propertyPath: m_Name
       value: GameManager
       objectReference: {fileID: 0}
+    - target: {fileID: 114093077804133366, guid: b765281464cf04848862b277b8000f9a,
+        type: 2}
+      propertyPath: song.Array.data[1]
+      value: 
+      objectReference: {fileID: 8300000, guid: 38aab75b7daffb14eaa81702d30d3d15, type: 3}
+    - target: {fileID: 114093077804133366, guid: b765281464cf04848862b277b8000f9a,
+        type: 2}
+      propertyPath: song.Array.data[4]
+      value: 
+      objectReference: {fileID: 8300000, guid: d9ca4bbd6d71a8a4f9a7a4799cadf587, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b765281464cf04848862b277b8000f9a, type: 2}
   m_IsPrefabParent: 0

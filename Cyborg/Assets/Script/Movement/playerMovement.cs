@@ -240,6 +240,7 @@ public class playerMovement: MonoBehaviour
             healthBar.GetComponent<HealthBarUI>().RemoveLife();
             this.spriteFlasher.StartFlash();
             StartCoroutine(damageTimer());
+            sfx.PlayPlayerHit();
         }
     }
 
@@ -270,6 +271,7 @@ public class playerMovement: MonoBehaviour
                 healthBar.GetComponent<HealthBarUI>().RemoveLife();
                 this.spriteFlasher.StartFlash();
                 StartCoroutine(damageTimer());
+                sfx.PlayPlayerHit();
             }
         }
     }

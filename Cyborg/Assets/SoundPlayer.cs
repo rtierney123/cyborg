@@ -52,7 +52,7 @@
             PlaySong(0);
         }
 
-        public void PlayHit()
+        public void PlayPlayerHit()
         {
             PlaySong(1);
         }
@@ -65,6 +65,11 @@
         public void PlayDie()
         {
             PlaySong(3);
+        } 
+
+        public void PlayEnemyHit()
+        {
+            PlaySong(4);
         } 
 
         public void Pause()
