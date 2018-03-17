@@ -1,10 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
-public abstract class Attack : EnemyAI {
-    //use as super for all boss attacks
-
-    public abstract void attack();
-
+namespace Enemy
+{
+    public abstract class Attack : EnemyAI
+    {
+        public abstract void attack();
+    }
 }
+

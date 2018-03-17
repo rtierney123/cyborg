@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using Pathfinding;
 using Pathfinding.RVO;
 using Pathfinding.Util;
+using Enemy;
 /** AI for following paths.
  * This AI is the default movement script which comes with the A* Pathfinding Project.
  * It is in no way required by the rest of the system, so feel free to write your own. But I hope this script will make it easier

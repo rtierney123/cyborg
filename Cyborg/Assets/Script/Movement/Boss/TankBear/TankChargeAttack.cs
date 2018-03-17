@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Enemy;
 
 public class TankChargeAttack : Attack {
     //length of charge
@@ -31,7 +32,6 @@ public class TankChargeAttack : Attack {
         CheckCharge();
         if (chargeAttack)
         {
-            //Debug.Log("startAttack" + count);
             count++;
             StartDelay();
             currentPos = gameObject.transform.position;

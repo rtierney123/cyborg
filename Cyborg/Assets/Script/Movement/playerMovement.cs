@@ -120,7 +120,13 @@ public class playerMovement: MonoBehaviour
         } 
         else
         {
-            movement = new Vector3(moveHorizontal, moveVertical);
+            if (moveHorizontal == 1 && moveVertical == 1)
+            {
+                movement = new Vector3(moveHorizontal/Mathf.Sqrt(2), moveVertical/Mathf.Sqrt(2));
+            } else
+            {
+                movement = new Vector3(moveHorizontal, moveVertical);
+            }         
         }
         
 

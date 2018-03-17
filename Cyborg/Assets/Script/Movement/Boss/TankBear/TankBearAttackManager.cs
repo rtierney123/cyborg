@@ -1,79 +1,138 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
-public class TankBearAttackManager : AttackManager {
-    //time to change attack
-    private float changeTime;
-    //keeps track whether to change attack or not
-    private bool changeAttack;
-    //number to keep track of which attack
-    private int attackCount;
-
-    private TankChargeAttack charge;
-    private TankDoubleCannon cannon;
-    private BasicAI moveTowards;
-    private Attack currentAttack;
-
-    private int count;
-	// Use this for initialization
-	void Start () {
-        changeAttack = false;
-        attackCount = 1;
-        currentAttack = charge;
-        charge = gameObject.GetComponent<TankChargeAttack>();
-        //cannon = gameObject.GetComponent<TankDoubleCannon>();
-        moveTowards = gameObject.GetComponent<BasicAI>();
-    }
-	
-	// Update is called once per frame
-	void FixedUpdate () {
-        
-    }
-
-    public override Attack chooseAttack()
+using System;
+namespace Enemy
+{
+    public class TankBearAttackManager : AttackManager
     {
-        CheckAttackChange();
-        if (changeAttack)
+        private GameObject playerLocation;
+        [HideInInspector]
+        public Vector2 playerdir;
+        [HideInInspector]
+        public Direction facingdir;
+        [HideInInspector]
+        public enum Direction { up, down, left, right };
+
+        //time to change attack
+        private float changeTime;
+        //keeps track whether to change attack or not
+        private bool changeAttack;
+        //number to keep track of which attack
+        private int attackCount;
+
+        private TankChargeAttack charge;
+        private TankDoubleCannon cannon;
+        private BasicAI moveTowards;
+        private Attack currentAttack;
+
+        private int count;
+        // Use this for initialization
+        void Start()
         {
-            if (attackCount == 1)
+            changeAttack = false;
+            attackCount = 1;
+            currentAttack = charge;
+            charge = gameObject.GetComponent<TankChargeAttack>();
+            //cannon = gameObject.GetComponent<TankDoubleCannon>();
+            moveTowards = gameObject.GetComponent<BasicAI>();
+
+            playerLocation = GameObject.Find("Player");
+        }
+
+        // Update is called once per frame
+        void Update()
+        {
+            playerdir = dirToPlayer();
+        }
+
+        public override Attack chooseAttack()
+        {
+            CheckAttackChange();
+            if (changeAttack)
             {
-                delay = 5;
-                StartDelay();
-                currentAttack = charge;
-                changeAttack = false;
-                attackCount++;
-                return charge;
-            } 
-            else
+                if (attackCount == 1)
+                {
+                    delay = 5;
+                    StartDelay();
+                    currentAttack = charge;
+                    changeAttack = false;
+                    attackCount++;
+                    return charge;
+                }
+                else
+                {
+                    //StartCoroutine(DelayNextAttack());
+                    StartDelay();
+                    currentAttack = moveTowards;
+                    changeAttack = false;
+                    attackCount = 1;
+                    count++;
+                    return moveTowards;
+                }
+            }
+            return currentAttack;
+
+        }
+
+
+        private void StartDelay()
+        {
+            changeTime = Time.time + delay;
+        }
+
+        private void CheckAttackChange()
+        {
+            if (Time.time >= changeTime)
             {
-                //StartCoroutine(DelayNextAttack());
-                StartDelay();
-                currentAttack = moveTowards;
-                changeAttack = false;
-                attackCount = 1;
-                count++;
-                return moveTowards;
+                changeAttack = true;
             }
         }
-        return currentAttack;
-        
-    }
-   
-
-    private void StartDelay()
-    {
-        changeTime = Time.time + delay;
-    }
-
-    private void CheckAttackChange()
-    {
-        if (Time.time >= changeTime)
+        /*
+        void OnCollisionEnter2D(Collision2D collision)
         {
-            changeAttack = true;
+            GameObject healthBar = GameObject.Find("HealthBar");
+            if (collision.gameObject.tag == "Enemy" && healthBar.transform.childCount != 0 && canTakeDamage)
+            {
+                healthBar.GetComponent<HealthBarUI>().RemoveLife();
+                this.spriteFlasher.StartFlash();
+                StartCoroutine(damageTimer());
+                sfx.PlayPlayerHit();
+            }
         }
+        */
+
+        public override Vector2 dirToPlayer()
+        {
+            return playerLocation.transform.position - this.gameObject.transform.position;
+        }
+
+        public override void findFacing()
+        {
+            if (Math.Abs(playerdir.x) > Math.Abs(playerdir.y))
+            {
+                if (playerdir.x > 0)
+                {
+                    facingdir = Direction.right;
+                }
+                else
+                {
+                    facingdir = Direction.left;
+                }
+            }
+            else
+            {
+                if (playerdir.y > 0)
+                {
+                    facingdir = Direction.up;
+                }
+                else
+                {
+                    facingdir = Direction.down;
+                }
+            }
+        }
+
     }
-
-
-
 }
+
