@@ -24,6 +24,7 @@ namespace Enemy
         private TankChargeAttack charge;
         private TankDoubleCannon cannon;
         private BasicAI moveTowards;
+        private BackOff backOff;
         private Attack currentAttack;
 
         private int count;
@@ -36,6 +37,7 @@ namespace Enemy
             charge = gameObject.GetComponent<TankChargeAttack>();
             //cannon = gameObject.GetComponent<TankDoubleCannon>();
             moveTowards = gameObject.GetComponent<BasicAI>();
+            backOff = gameObject.GetComponent<BackOff>();
 
             playerLocation = GameObject.Find("Player");
         }
@@ -60,15 +62,21 @@ namespace Enemy
                     attackCount++;
                     return charge;
                 }
-                else
+                else if (attackCount == 2)
                 {
                     //StartCoroutine(DelayNextAttack());
                     StartDelay();
                     currentAttack = moveTowards;
                     changeAttack = false;
                     attackCount = 1;
-                    count++;
                     return moveTowards;
+                } else
+                {
+                    StartDelay();
+                    currentAttack = backOff;
+                    changeAttack = false;
+                    attackCount = 1;
+                    return backOff;
                 }
             }
             return currentAttack;
@@ -101,10 +109,19 @@ namespace Enemy
             }
         }
         */
+        void OnCollisionEnter2D(Collision2D collision)
+        {
+            if (collision.gameObject.name == "Player")
+            {
+                currentAttack = backOff;
+                attackCount = 3;
+                Debug.Log("backOff");
+            }
+        }
 
         public override Vector2 dirToPlayer()
         {
-            return playerLocation.transform.position - this.gameObject.transform.position;
+            return (playerLocation.transform.position - this.gameObject.transform.position).normalized;
         }
 
         public override void findFacing()

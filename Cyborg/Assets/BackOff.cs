@@ -6,11 +6,12 @@ namespace Enemy
 {
     public class BackOff : Attack
     {
+        public AttackManager attackManager;
 
         public override Vector2 move(Vector2 tan)
         {
             setSpeed(15);
-            return getSpeed() * tan;
+            return -getSpeed() * attackManager.dirToPlayer();
 
         }
         public override void updateSprites()

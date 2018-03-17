@@ -24,6 +24,14 @@ public class DialogManager : MonoBehaviour {
         pause = FindObjectOfType<Pause_Game>();
     }
 
+    private void Update()
+    {
+        if (Input.GetKeyDown("space"))
+        {
+            DisplayNextSentence();
+        }
+    }
+
     public void StartDialogue (Dialog dialogue)
     {
         Debug.Log("Starting conversation with " + dialogue.name);

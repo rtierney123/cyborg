@@ -53,13 +53,13 @@ namespace Enemy
         /// <summary> Thest the sprite based on aim direction. </summary>
         private void SetSprite()
         {
-            Vector3 dirToPlayer = transform.position - player.transform.position;
+            Vector3 dirToPlayer = player.transform.position - transform.position;
             float absx = Mathf.Abs(dirToPlayer.x);
             float absy = Mathf.Abs(dirToPlayer.y);
-            if (absx >= absy)
+            if (absx > absy)
             {
                 this.mySpriteRenderer.sprite = spriteArray[0];
-                if (-dirToPlayer.x == 1)
+                if (dirToPlayer.x > 0)
                     this.mySpriteRenderer.flipX = false;
                 else
                     this.mySpriteRenderer.flipX = true;
@@ -67,7 +67,7 @@ namespace Enemy
             else
             {
                 this.mySpriteRenderer.flipX = false;
-                if (-dirToPlayer.y == 1)
+                if (dirToPlayer.y > 0)
                     this.mySpriteRenderer.sprite = spriteArray[1];
                 else
                     this.mySpriteRenderer.sprite = spriteArray[2];
