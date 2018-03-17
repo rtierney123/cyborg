@@ -54,7 +54,7 @@
 
         public void PlayPlayerHit()
         {
-            PlaySong(1);
+           // PlaySong(1);
         }
 
         public void PlayHeal()
@@ -69,7 +69,7 @@
 
         public void PlayEnemyHit()
         {
-            PlaySong(4);
+            //PlaySong(4);
         } 
 
         public void Pause()

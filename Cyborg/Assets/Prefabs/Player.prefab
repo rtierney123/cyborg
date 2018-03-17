@@ -317,7 +317,7 @@ MonoBehaviour:
   weaponRotation: {fileID: 4636955438779814}
   spriteFlasher: {fileID: 114291061217346288}
   bulletSpawn: {fileID: 4427414357432356}
-  speed: 30
+  speed: 20
   projectile: {fileID: 1027195794295514, guid: 741a625fa9b150c49b7e7fda52d33abd, type: 2}
   direction: {x: 1, y: 0, z: 0}
   playerPos: {x: 0, y: 0}
@@ -329,7 +329,7 @@ MonoBehaviour:
   boxcollider: {fileID: 61350980918051696}
   count: 0
   triggered: 0
-  invincible: 1
+  invincible: 0
   turnOffY: 0
   sfx: {fileID: 0}
   active: 1

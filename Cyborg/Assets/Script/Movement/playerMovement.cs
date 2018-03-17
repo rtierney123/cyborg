@@ -35,7 +35,9 @@ public class playerMovement: MonoBehaviour
     public bool invincible;
     public bool turnOffY;
     private Renderer rend;
-
+    private bool canFire;
+    private bool changeMode;
+  
     [SerializeField]
     public SoundPlayer sfx;
 
@@ -61,6 +63,7 @@ public class playerMovement: MonoBehaviour
         allowDamage = true;
         turnOffY = false;
         onlyX = false;
+       
     }
     void Start()
     {
@@ -69,19 +72,28 @@ public class playerMovement: MonoBehaviour
         spriteHeight = mySpriteRenderer.bounds.size.y;
         this.boxcollider = this.GetComponent<BoxCollider2D>();
         active = true;
+        canFire = true;
+        changeMode = false;
     }
     void LateUpdate()
     {
+
         Flip();
-        if (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.DownArrow)|| Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.LeftArrow))
+        if ((Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.DownArrow)|| Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.LeftArrow)) && canFire)
         {
             TestDirection();
             sfx.PlayShoot();
             Fire();
-            
-        }
+            canFire = false;
+            Invoke("AllowFire", (float).2);
+        } 
         CheckHealth();
       
+    }
+
+    void AllowFire()
+    {
+        canFire = true;
     }
     void CheckHealth()
     {
