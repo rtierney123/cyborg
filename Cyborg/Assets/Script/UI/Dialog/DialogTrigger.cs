@@ -75,4 +75,22 @@ public class DialogTrigger : MonoBehaviour {
             }
         }
     }
+
+    void OnTriggerEnter2D(Collider2D coll)
+    {
+        if (triggerType == TRIGGER_TYPE.ON_PLAYER_ENTER)
+        {
+            if (coll.gameObject.tag == "Player")
+            {
+                if (!dialogUI.activeSelf)
+                {
+                    dialogUI.SetActive(true);
+                }
+                Debug.Log("Player Entered dialog zone.");
+                dialogCollider.enabled = false;
+
+                TriggerDialogue();
+            }
+        }
+    }
 }

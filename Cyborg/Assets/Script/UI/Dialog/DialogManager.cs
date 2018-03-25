@@ -13,15 +13,25 @@ public class DialogManager : MonoBehaviour {
     private Pause_Game pause;
 
     public Queue<string> sentences;
-	// Use this for initialization
+    public Queue<GameObject> speakers;
+
+    private SpeakerInfo speakerInfo;
+    // Use this for initialization
+    private int count;
 	void Awake ()
     {
         sentences = new Queue<string>();
+        speakers = new Queue<GameObject>();
+
     }
 
     private void Start()
     {
         pause = FindObjectOfType<Pause_Game>();
+        if (pause == null)
+        {
+            Debug.Log("Cannot find pause gameobject");
+        }
     }
 
     private void Update()
@@ -35,22 +45,29 @@ public class DialogManager : MonoBehaviour {
     public void StartDialogue (Dialog dialogue)
     {
         Debug.Log("Starting conversation with " + dialogue.name);
-
         pause.DialogPause = true;
-        nameText.text = dialogue.name;
-
         sentences.Clear();
 
         foreach (string sentence in dialogue.sentences)
         {
-           sentences.Enqueue(sentence);
+            sentences.Enqueue(sentence);
         }
+
+        foreach (GameObject speaker in dialogue.speakers)
+        {
+            speakers.Enqueue(speaker);
+        }
+
+        
+        //nameText.text = dialogue.name;
+        
 
         DisplayNextSentence();
     }
 
     public void DisplayNextSentence()
     {
+        Debug.Log(count);
         ToggleAllDialogUI(true);
 
 
@@ -60,6 +77,9 @@ public class DialogManager : MonoBehaviour {
             return;
         }
 
+        speakerInfo = speakers.Dequeue().GetComponent<SpeakerInfo>();
+        dialogHeadImage.sprite = speakerInfo.dialogHead.sprite;
+        nameText.text = speakerInfo.speakerName.text;
         string sentence = sentences.Dequeue();
         dialogText.text = sentence;
     }

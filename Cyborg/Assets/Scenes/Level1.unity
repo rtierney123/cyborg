@@ -549,6 +549,7 @@ Transform:
   - {fileID: 1605176175}
   - {fileID: 2069035353}
   - {fileID: 1086656945}
+  - {fileID: 1991733238}
   m_Father: {fileID: 229401965}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2314,6 +2315,9 @@ MonoBehaviour:
     sentences:
     - What the hell is that thing?
     - Is it... A tank...? Or a bear..???
+    speakers:
+    - {fileID: 1289278433664840, guid: eda43838574324e499083e05373acf41, type: 2}
+    - {fileID: 1289278433664840, guid: eda43838574324e499083e05373acf41, type: 2}
   dialogUI: {fileID: 405667461}
 --- !u!61 &793397414
 BoxCollider2D:
@@ -3359,11 +3363,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4435035345625146, guid: 94611f46e333543419f94537ffedcc1a, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -8.8
+      value: -4.7
       objectReference: {fileID: 0}
     - target: {fileID: 4435035345625146, guid: 94611f46e333543419f94537ffedcc1a, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -7.2
+      value: -7.44
       objectReference: {fileID: 0}
     - target: {fileID: 4435035345625146, guid: 94611f46e333543419f94537ffedcc1a, type: 2}
       propertyPath: m_LocalPosition.z
@@ -3710,6 +3714,9 @@ MonoBehaviour:
     sentences:
     - I'll need to be careful here.
     - There's lots of monsters!
+    speakers:
+    - {fileID: 1289278433664840, guid: eda43838574324e499083e05373acf41, type: 2}
+    - {fileID: 1289278433664840, guid: eda43838574324e499083e05373acf41, type: 2}
   dialogUI: {fileID: 405667461}
 --- !u!1 &1090869470
 GameObject:
@@ -7072,6 +7079,80 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
+--- !u!1 &1991733235
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1991733238}
+  - component: {fileID: 1991733237}
+  - component: {fileID: 1991733236}
+  m_Layer: 11
+  m_Name: PlayerleaveDialog
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1991733236
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1991733235}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: feb9c582cea857e4baeec05fe1a9bae8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerType: 0
+  dialogue:
+    name: Angelica Masters
+    sentences:
+    - You will never escape.
+    speakers:
+    - {fileID: 1680991466066770, guid: e17381975a4f0754b9a54672cdb7e05a, type: 2}
+  dialogUI: {fileID: 405667461}
+--- !u!61 &1991733237
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1991733235}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.7169881, y: 0.5693718}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 2.4339762, y: 8.043345}
+  m_EdgeRadius: 0
+--- !u!4 &1991733238
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1991733235}
+  m_LocalRotation: {x: -0, y: -0, z: -0.7071068, w: 0.7071068}
+  m_LocalPosition: {x: -1.3, y: -11.4, z: -0.765625}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 196567773}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2002460703
 GameObject:
   m_ObjectHideFlags: 0
