@@ -5,6 +5,7 @@ using UnityEngine;
 public class Main_Menu : MonoBehaviour {
     public GameObject menu;
     private Animator anim;
+    public bool mainMenuScene;
 
     void Start() {
         anim = menu.GetComponent<Animator>();
