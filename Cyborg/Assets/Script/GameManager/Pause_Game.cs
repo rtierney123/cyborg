@@ -7,6 +7,7 @@ public class Pause_Game : MonoBehaviour
 
     private bool pauseButton;
     private bool dialogPause;
+    public GameObject pauseMenu;
 
     private void Start()
     {
@@ -20,7 +21,14 @@ public class Pause_Game : MonoBehaviour
         //Adjusts the status of the pause button
         if(Input.GetKeyDown(KeyCode.P))
         {
+            if (pauseButton) {
+                pauseMenu.SetActive(false);
+            }
+            else {
+                pauseMenu.SetActive(true);
+            }
             PauseButton = !PauseButton;
+            
         }
 
         //Time will come to a stop if the game has not been manually paused, AND the game has not been force paused by dialogue.
