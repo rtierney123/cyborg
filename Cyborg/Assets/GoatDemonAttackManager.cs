@@ -14,6 +14,10 @@ namespace Enemy
         public Direction facingdir;
         [HideInInspector]
         public enum Direction { up, down, left, right };
+        [HideInInspector]
+        public enum SpriteMode { idle, charging};
+        [HideInInspector]
+        public SpriteMode currentMode;
 
         //time to change attack
         private float changeTime;
@@ -23,6 +27,7 @@ namespace Enemy
         private int attackCount;
 
         private TankChargeAttack charge;
+        private BackOff backOff;
         private Attack currentAttack;
 
         private int count;
@@ -33,6 +38,7 @@ namespace Enemy
             attackCount = 1;
             currentAttack = charge;
             charge = gameObject.GetComponent<TankChargeAttack>();
+            backOff = gameObject.GetComponent<BackOff>();
             playerLocation = GameObject.Find("Player");
         }
 
@@ -49,6 +55,7 @@ namespace Enemy
             {
                 if (attackCount == 1)
                 {
+                    currentMode = SpriteMode.charging;
                     delay = 5;
                     StartDelay();
                     currentAttack = charge;
@@ -56,7 +63,14 @@ namespace Enemy
                     attackCount++;
                     return charge;
                 }
-                attackCount--;
+                else
+                {
+                    StartDelay();
+                    currentAttack = backOff;
+                    changeAttack = false;
+                    attackCount = 1;
+                    return backOff;
+                }
             }
             return currentAttack;
 
@@ -75,7 +89,17 @@ namespace Enemy
                 changeAttack = true;
             }
         }
-      
+
+        void OnCollisionEnter2D(Collision2D collision)
+        {
+            if (collision.gameObject.name == "Player")
+            {
+                currentAttack = backOff;
+                currentMode = SpriteMode.idle;
+                attackCount = 2;
+                Debug.Log("backOff");
+            }
+        }
 
         public override Vector2 dirToPlayer()
         {
