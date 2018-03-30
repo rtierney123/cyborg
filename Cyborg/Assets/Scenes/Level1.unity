@@ -3854,11 +3854,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4435035345625146, guid: 94611f46e333543419f94537ffedcc1a, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -4.7
+      value: 46.6
       objectReference: {fileID: 0}
     - target: {fileID: 4435035345625146, guid: 94611f46e333543419f94537ffedcc1a, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -7.44
+      value: -94.3
       objectReference: {fileID: 0}
     - target: {fileID: 4435035345625146, guid: 94611f46e333543419f94537ffedcc1a, type: 2}
       propertyPath: m_LocalPosition.z
@@ -4332,75 +4332,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 8
       objectReference: {fileID: 0}
-    - target: {fileID: 114977918113960280, guid: 35245e2c923555c498b7ec7551a69587,
-        type: 2}
-      propertyPath: dialogBackgroundImage
-      value: 
-      objectReference: {fileID: 1758866528}
-    - target: {fileID: 114343840875683940, guid: 35245e2c923555c498b7ec7551a69587,
-        type: 2}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 7acd322572f2342419b583be39bef8c0,
-        type: 3}
-    - target: {fileID: 1935625658152232, guid: 35245e2c923555c498b7ec7551a69587, type: 2}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1639638369603914, guid: 35245e2c923555c498b7ec7551a69587, type: 2}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1151172969203736, guid: 35245e2c923555c498b7ec7551a69587, type: 2}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1430527735329666, guid: 35245e2c923555c498b7ec7551a69587, type: 2}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1598726943467680, guid: 35245e2c923555c498b7ec7551a69587, type: 2}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4490194561533736, guid: 35245e2c923555c498b7ec7551a69587, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: -263
-      objectReference: {fileID: 0}
-    - target: {fileID: 4490194561533736, guid: 35245e2c923555c498b7ec7551a69587, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 79
-      objectReference: {fileID: 0}
-    - target: {fileID: 4956285873509234, guid: 35245e2c923555c498b7ec7551a69587, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: -21
-      objectReference: {fileID: 0}
-    - target: {fileID: 224559490057680022, guid: 35245e2c923555c498b7ec7551a69587,
-        type: 2}
-      propertyPath: m_AnchoredPosition.y
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 224559490057680022, guid: 35245e2c923555c498b7ec7551a69587,
-        type: 2}
-      propertyPath: m_AnchoredPosition.x
-      value: 18
-      objectReference: {fileID: 0}
-    - target: {fileID: 224990408465206578, guid: 35245e2c923555c498b7ec7551a69587,
-        type: 2}
-      propertyPath: m_AnchoredPosition.x
-      value: 36
-      objectReference: {fileID: 0}
-    - target: {fileID: 224990408465206578, guid: 35245e2c923555c498b7ec7551a69587,
-        type: 2}
-      propertyPath: m_AnchoredPosition.y
-      value: 1.6321106
-      objectReference: {fileID: 0}
-    - target: {fileID: 114279818647672994, guid: 35245e2c923555c498b7ec7551a69587,
-        type: 2}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: f80cbc1f546cd1b4b98b97f1d1d19b50,
-        type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 35245e2c923555c498b7ec7551a69587, type: 2}
   m_IsPrefabParent: 0
@@ -7125,12 +7056,6 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
---- !u!114 &1758866528 stripped
-MonoBehaviour:
-  m_PrefabParentObject: {fileID: 114343840875683940, guid: 35245e2c923555c498b7ec7551a69587,
-    type: 2}
-  m_PrefabInternal: {fileID: 1104469730}
-  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
 --- !u!1 &1763530372
 GameObject:
   m_ObjectHideFlags: 0
