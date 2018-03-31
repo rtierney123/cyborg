@@ -15,6 +15,10 @@ public class GoatFaceTarget : MonoBehaviour {
     public Sprite upCharge;
     public Sprite rightCharge;
 
+    public Sprite downFire;
+    public Sprite upFire;
+    public Sprite rightFire;
+
     private SpriteRenderer mySpriteRenderer;
     private Vector2 currentPos;
     private Vector2 targetPos;
@@ -58,7 +62,11 @@ public class GoatFaceTarget : MonoBehaviour {
                 if (manager.currentMode == GoatDemonAttackManager.SpriteMode.charging)
                 {
                     mySpriteRenderer.sprite = rightCharge;
-                } else
+                }
+                else if (manager.currentMode == GoatDemonAttackManager.SpriteMode.fire) {
+                    mySpriteRenderer.sprite = rightFire;
+                }
+                else
                 {
                     mySpriteRenderer.sprite = rightIdle;
                 }
@@ -75,6 +83,10 @@ public class GoatFaceTarget : MonoBehaviour {
                 if (manager.currentMode == GoatDemonAttackManager.SpriteMode.charging)
                 {
                     mySpriteRenderer.sprite = rightCharge;
+                }
+                else if (manager.currentMode == GoatDemonAttackManager.SpriteMode.fire)
+                {
+                    mySpriteRenderer.sprite = rightFire;
                 }
                 else
                 {
@@ -94,6 +106,10 @@ public class GoatFaceTarget : MonoBehaviour {
                 {
                     mySpriteRenderer.sprite = upCharge;
                 }
+                else if (manager.currentMode == GoatDemonAttackManager.SpriteMode.fire)
+                {
+                    mySpriteRenderer.sprite = upFire;
+                }
                 else
                 {
                     mySpriteRenderer.sprite = upIdle;
@@ -108,6 +124,10 @@ public class GoatFaceTarget : MonoBehaviour {
                 if (manager.currentMode == GoatDemonAttackManager.SpriteMode.charging)
                 {
                     mySpriteRenderer.sprite = downCharge;
+                }
+                else if (manager.currentMode == GoatDemonAttackManager.SpriteMode.fire)
+                {
+                    mySpriteRenderer.sprite = downFire;
                 }
                 else
                 {

@@ -15,7 +15,7 @@ namespace Enemy
         [HideInInspector]
         public enum Direction { up, down, left, right };
         [HideInInspector]
-        public enum SpriteMode { idle, charging};
+        public enum SpriteMode { idle, charging, fire};
         [HideInInspector]
         public SpriteMode currentMode;
 
@@ -28,6 +28,7 @@ namespace Enemy
 
         private TankChargeAttack charge;
         private BackOff backOff;
+        private FireGoat fire;
         private Attack currentAttack;
 
         private int count;
@@ -38,6 +39,7 @@ namespace Enemy
             attackCount = 1;
             currentAttack = charge;
             charge = gameObject.GetComponent<TankChargeAttack>();
+            fire = gameObject.GetComponent<FireGoat>();
             backOff = gameObject.GetComponent<BackOff>();
             playerLocation = GameObject.Find("Player");
         }
@@ -56,12 +58,20 @@ namespace Enemy
                 if (attackCount == 1)
                 {
                     currentMode = SpriteMode.charging;
-                    delay = 5;
                     StartDelay();
                     currentAttack = charge;
                     changeAttack = false;
                     attackCount++;
                     return charge;
+                }
+                else if (attackCount == 2)
+                {
+                    currentMode = SpriteMode.fire;
+                    StartDelay();
+                    currentAttack = fire;
+                    changeAttack = false;
+                    attackCount = 1;
+                    return fire;
                 }
                 else
                 {
