@@ -69,6 +69,9 @@ namespace Enemy
                     currentMode = SpriteMode.fire;
                     StartDelay();
                     currentAttack = fire;
+                    findFacing();
+                    fire.dir = facingdir;
+                    Invoke("Fire", 1);
                     changeAttack = false;
                     attackCount = 1;
                     return fire;
@@ -86,6 +89,10 @@ namespace Enemy
 
         }
 
+        private void Fire()
+        {
+            fire.attack();
+        }
 
         private void StartDelay()
         {

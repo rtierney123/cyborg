@@ -54,4 +54,6 @@ MonoBehaviour:
   bulletPools:
   - {fileID: 114804361201176254, guid: 4c636284176c5774b8b4a321a89a5eb6, type: 2}
   - {fileID: 114621862899695842, guid: ab3d981b30861bc48bec844cac3ec0c9, type: 2}
-  bulletPoolSizes: 0500000014000000
+  - {fileID: 114283433665512986, guid: 87564caea87811f4eacb2ff8be960ecd, type: 2}
+  - {fileID: 114690190796238700, guid: 2577c13e7fc28694da30b4d0eb3a38d3, type: 2}
+  bulletPoolSizes: 05000000140000001400000014000000

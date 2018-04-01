@@ -16,18 +16,29 @@
         private int referenceIndex = 0;
         private float currentLifeTime = 0;
 
+        public bool hasExplosion;
+
         private void Update()
         {
             LocalUpdate();
             if ((this.currentLifeTime -= Time.deltaTime) <= 0)
             {
-                ReturnBullet();
+                if (!hasExplosion)
+                {
+                    ReturnBullet();
+                }
+                
             }
         }
 
-        private void OnCollisionEnter2D(Collision2D collider)
+        protected virtual void OnCollisionEnter2D(Collision2D collider)
         {
-            this.currentLifeTime = 0;
+            if (!hasExplosion)
+            {
+                Debug.Log("explosion ended");
+                this.currentLifeTime = 0;
+            }
+           
         }
 
         public IPoolable SpawnCopy(int referenceIndex)
