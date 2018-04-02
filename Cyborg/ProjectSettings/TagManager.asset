@@ -19,6 +19,7 @@ TagManager:
   - Door
   - Elevator
   - Heal
+  - Darkness
   layers:
   - Default
   - TransparentFX
