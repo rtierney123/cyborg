@@ -35,8 +35,9 @@
         {
             if (!hasExplosion)
             {
-                Debug.Log("explosion ended");
                 this.currentLifeTime = 0;
+                //if (collider.gameObject.tag != "Enemy")
+                    
             }
            
         }
