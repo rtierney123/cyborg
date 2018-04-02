@@ -38,6 +38,7 @@ namespace Enemy
             {
                 Debug.Log("Have to have spring attached to bouncy alien");
             }
+            player = GameObject.Find("Player").transform;
         }
 
         public override Vector2 move(Vector2 tan)

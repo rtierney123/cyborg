@@ -194,6 +194,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attacks: []
   delay: 0
+  playerdir: {x: 0, y: 0}
+  facingdir: 0
 --- !u!114 &114854519348024712
 MonoBehaviour:
   m_ObjectHideFlags: 1

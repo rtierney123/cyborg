@@ -130,7 +130,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1917423499670132}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.44, y: 0.004871376, z: 3.5365746}
+  m_LocalPosition: {x: -2.06, y: 0.004871376, z: 3.5365746}
   m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_Children: []
   m_Father: {fileID: 4451625699966470}
@@ -173,7 +173,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1007356020989494}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.9348001, y: 0.004871376, z: 3.5365746}
+  m_LocalPosition: {x: 1.29, y: 0.004871376, z: 3.5365746}
   m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_Children: []
   m_Father: {fileID: 4451625699966470}
@@ -186,7 +186,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1467013995487242}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 59.4464, y: 36.920258, z: 1}
+  m_LocalPosition: {x: 82, y: 54.6, z: 1}
   m_LocalScale: {x: 3, y: 2.5, z: 1}
   m_Children:
   - {fileID: 4451625699966470}
@@ -251,7 +251,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spriteFlasher: {fileID: 114928658381066042}
   healthDrop: {fileID: 1884255959074350, guid: 31181bbca2a52b34d96a9193f7640a81, type: 2}
-  deathCount: 0
+  deathCount: 7
   sfx: {fileID: 0}
 --- !u!114 &114440702430094144
 MonoBehaviour:
@@ -264,6 +264,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fcc72324d8bf2cd43816619995e29890, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  testSpawn: {fileID: 0}
   rtFire: {fileID: 4775478980054034}
   ltFire: {fileID: 4029603990041634}
   tpFire: {fileID: 4649361301070644}
