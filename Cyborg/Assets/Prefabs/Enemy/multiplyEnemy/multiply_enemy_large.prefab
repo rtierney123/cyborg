@@ -147,7 +147,7 @@ MonoBehaviour:
   target: {fileID: 0}
   canSearch: 1
   canMove: 1
-  speed: 7
+  speed: 10
   rotationSpeed: 360
   slowdownDistance: 0.6
   pickNextWaypointDist: 2
@@ -194,6 +194,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attacks: []
   delay: 0
+  playerdir: {x: 0, y: 0}
+  facingdir: 0
 --- !u!114 &114854519348024712
 MonoBehaviour:
   m_ObjectHideFlags: 1

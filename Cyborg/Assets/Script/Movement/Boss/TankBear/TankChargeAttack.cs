@@ -28,7 +28,7 @@ public class TankChargeAttack : Attack {
 
     public override Vector2 move(Vector2 tan)
     {
-        setSpeed(40);
+        setSpeed(30);
         CheckCharge();
         if (chargeAttack)
         {

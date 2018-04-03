@@ -100,8 +100,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 1
-  lifeTime: 1
+  lifeTime: 4
   type: 1
+  hasExplosion: 0
   speed: 10
   rgbdy: {fileID: 50865489831960916}
   hasRB: 1

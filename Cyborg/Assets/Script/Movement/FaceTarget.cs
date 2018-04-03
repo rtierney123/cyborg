@@ -13,13 +13,17 @@ public class FaceTarget : MonoBehaviour {
     private Vector2 targetPos;
     private UpdateColliders updateCol;
     private GameObject onCol;
+    [HideInInspector]
     public Vector2 dirToTarget;
+
 	// Use this for initialization
 	void Start () {
         mySpriteRenderer = this.GetComponent<SpriteRenderer>();
         updateCol = this.GetComponent<UpdateColliders>();
         onCol = updateCol.bmCol;
-        target = GameObject.Find("Player");
+        
+        
+        //target = GameObject.Find("Player");
     }
 	
 	// Update is called once per frame
@@ -40,6 +44,7 @@ public class FaceTarget : MonoBehaviour {
                 mySpriteRenderer.flipX = false;
                 mySpriteRenderer.sprite = right;
 
+              
                 onCol.SetActive(false);
                 onCol = updateCol.rtCol;
                 onCol.SetActive(true);
