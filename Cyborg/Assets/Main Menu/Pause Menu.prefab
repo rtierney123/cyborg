@@ -95,6 +95,7 @@ GameObject:
   - component: {fileID: 222561552037396432}
   - component: {fileID: 114482108027099852}
   - component: {fileID: 114216492649685126}
+  - component: {fileID: 114228115613820842}
   m_Layer: 5
   m_Name: Level Select
   m_TagString: Untagged
@@ -114,7 +115,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   button: {fileID: 114217790922170674}
-  level: LevelSelect
+  level: Level1
 --- !u!114 &114141852572631210
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -226,6 +227,19 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
+--- !u!114 &114228115613820842
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1801179046982346}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce4f1301fa9abdc4990d0c214106bb1c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  button: {fileID: 114216492649685126}
+  level: LevelSelect
 --- !u!114 &114380476344788112
 MonoBehaviour:
   m_ObjectHideFlags: 1
