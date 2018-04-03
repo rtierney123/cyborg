@@ -44,8 +44,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1651109160070608}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2.1301308, y: -9.150165, z: 1}
-  m_LocalScale: {x: 2, y: 2, z: 1}
+  m_LocalPosition: {x: -50.2, y: 11.6, z: 1.078125}
+  m_LocalScale: {x: 2.3249993, y: 2.1749985, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -241,6 +241,7 @@ MonoBehaviour:
   spriteFlasher: {fileID: 114631074488969360}
   healthDrop: {fileID: 1884255959074350, guid: 31181bbca2a52b34d96a9193f7640a81, type: 2}
   deathCount: 5
+  sfx: {fileID: 0}
 --- !u!114 &114996580768048128
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -252,7 +253,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5406d8e66c1d8824a8cbca2c97619336, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  attacks: []
   delay: 0
+  playerdir: {x: 0, y: 0}
+  facingdir: 0
 --- !u!212 &212967156020062450
 SpriteRenderer:
   m_ObjectHideFlags: 1

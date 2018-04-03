@@ -5,7 +5,6 @@ using Enemy;
 using Projectile.ObjectPooling;
 
 public class RayGunAI : Attack {
-    public Transform testSpawn;
 
     public Transform rtFire;
     public Transform ltFire;
