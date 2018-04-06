@@ -19,7 +19,7 @@ public class Pause_Game : MonoBehaviour
     void Update()
     {
         //Adjusts the status of the pause button
-        if(Input.GetKeyDown(KeyCode.P))
+        if(Input.GetKeyDown(KeyCode.Escape))
         {
             if (pauseButton) {
                 pauseMenu.SetActive(false);

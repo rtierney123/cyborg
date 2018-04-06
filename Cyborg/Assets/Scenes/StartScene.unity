@@ -136,7 +136,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   button: {fileID: 41248248}
-  level: Level1
+  level: IntroSlides
 --- !u!1 &145768902
 GameObject:
   m_ObjectHideFlags: 0
