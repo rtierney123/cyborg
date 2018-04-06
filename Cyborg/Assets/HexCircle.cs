@@ -29,6 +29,8 @@ public class HexCircle : MonoBehaviour
     private const float MIN_AURA = 0.0f;
     private const float AURA_RATE = 0.02f;
 
+    public AudioSource background;
+
     // Use this for initialization
     void Start()
     {
@@ -58,10 +60,12 @@ public class HexCircle : MonoBehaviour
             if (c.bounds.Contains(player.transform.position))
             {
                 playerInsideCircle = true;
+                background.volume = 0;
                 return;
             }
         }
         playerInsideCircle = false;
+        background.volume = (float).2;
     }
 
     // Update is called once per frame at a fixed rate
