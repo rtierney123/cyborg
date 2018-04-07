@@ -51,7 +51,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1391890993509348}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -7.39135, y: 1.3282318, z: 0}
+  m_LocalPosition: {x: 86.123955, y: -90.85576, z: 0}
   m_LocalScale: {x: 0.62210596, y: 0.7010056, z: 1}
   m_Children:
   - {fileID: 4984028786391738}
@@ -65,7 +65,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1163674612583758}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2.03, y: -0.08, z: -0.035799738}
+  m_LocalPosition: {x: 2.03, y: -0.08, z: 0}
   m_LocalScale: {x: 1.6074433, y: 1.4265221, z: 1}
   m_Children: []
   m_Father: {fileID: 4418707891402340}
@@ -108,12 +108,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 1
-  lifeTime: 5
+  lifeTime: 0
   type: 6
-  hasExplosion: 0
+  hasExplosion: 1
   speed: 0
   rgbdy: {fileID: 0}
   hasRB: 0
+  createdByEnemy: 0
 --- !u!212 &212894230881225830
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -145,8 +146,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -97194679
-  m_SortingLayer: 1
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 7587f7a1b56faf84583432c9d8f56c86, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

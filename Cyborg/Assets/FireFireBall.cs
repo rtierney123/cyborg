@@ -11,26 +11,38 @@ public class FireFireBall : Attack {
     public Transform tpLoc;
     public Transform bmLoc;
     
+    [HideInInspector]
     public SingleAttackManager.Direction dir;
     private bool allowAttack;
 
+    private Transform[] possibleProjectilePos;
+    private GameObject player;
     private SingleAttackManager manager;
-    private void Start()
+
+    private void Awake()
     {
         allowAttack = true;
         manager = this.GetComponent<SingleAttackManager>();
+        manager.findFacing();
+        dir = manager.facingdir;
     }
 
-    private void Update()
+    private void Start()
+    {
+        this.player = GameObject.Find("Player");
+        this.possibleProjectilePos = player.GetComponentsInChildren<Transform>();
+    }
+
+    private void LateUpdate()
     {
         attack();
-        dir = manager.facingdir;
+       
     }
 
     public override Vector2 move(Vector2 tan)
     {
-        Vector2 idle = new Vector2(0, 0);
-        return idle;
+        PositionEnemy();
+        return getSpeed() * tan;
     }
 
     public override void attack()
@@ -38,18 +50,25 @@ public class FireFireBall : Attack {
         if (allowAttack)
         {
             allowAttack = false;
-            Invoke("CreateBullet", 5);
+            //Invoke("CreateBullet", 1);
+            StartCoroutine(ExecuteAfterTime((float).5));
         }
+    }
+
+    private IEnumerator ExecuteAfterTime(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        CreateBullet();
     }
 
     private void CreateBullet()
     {
         manager.findFacing();
-        allowAttack = true;
-        Debug.Log(dir);
+        dir = manager.facingdir;
         GameObject b = BulletPool.Instance.GetBullet(BulletPool.BulletTypes.FireBall);
         if (b != null)
         {
+            //b.GetComponent<FireBall>().enemy = this.gameObject.transform;
             if (dir == SingleAttackManager.Direction.right)
             {
                 b.transform.position = rtLoc.position;
@@ -64,14 +83,16 @@ public class FireFireBall : Attack {
             {
                 b.transform.position = bmLoc.position;
                 b.transform.rotation = bmLoc.rotation;
+                b.GetComponent<SpriteRenderer>().sortingOrder = 0;
             }
             else if (dir == SingleAttackManager.Direction.up)
             {
                 b.transform.position = tpLoc.position;
                 b.transform.rotation = tpLoc.rotation;
             }
-
+            allowAttack = true;
         }
+        
 
     }
 
@@ -80,5 +101,23 @@ public class FireFireBall : Attack {
     public override void updateSprites()
     {
 
+    }
+
+    private void PositionEnemy()
+    {
+        float dist = 0;
+        float maxdist = 0;
+
+        Transform moveHere = player.transform;
+        foreach (Transform pos in possibleProjectilePos)
+        {
+            dist = Vector3.Distance(transform.position, pos.position);
+            if (dist > maxdist)
+            {
+                moveHere = pos;
+            }
+        }
+
+        changeTarget(moveHere);
     }
 }
