@@ -12605,6 +12605,12 @@ Prefab:
       propertyPath: bulletPoolSizes.Array.data[6]
       value: 500
       objectReference: {fileID: 0}
+    - target: {fileID: 114178070889295208, guid: bb6e77149c5b3b342856ba7b407d037d,
+        type: 2}
+      propertyPath: bulletPools.Array.data[2]
+      value: 
+      objectReference: {fileID: 114283433665512986, guid: 87564caea87811f4eacb2ff8be960ecd,
+        type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: bb6e77149c5b3b342856ba7b407d037d, type: 2}
   m_IsPrefabParent: 0
