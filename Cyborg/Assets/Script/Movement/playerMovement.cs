@@ -40,6 +40,7 @@ public class playerMovement: MonoBehaviour
   
     [SerializeField]
     public SoundPlayer sfx;
+    private AudioSource hitSound;
 
     [HideInInspector]
     public bool active;
@@ -74,6 +75,7 @@ public class playerMovement: MonoBehaviour
         active = true;
         canFire = true;
         changeMode = false;
+        hitSound = GameObject.Find("PlayerHit").GetComponent<AudioSource>();
     }
     void LateUpdate()
     {
@@ -258,7 +260,7 @@ public class playerMovement: MonoBehaviour
             healthBar.GetComponent<HealthBarUI>().RemoveLife();
             this.spriteFlasher.StartFlash();
             StartCoroutine(damageTimer());
-            sfx.PlayPlayerHit();
+            hitSound.Play();
         }
     }
 
@@ -284,6 +286,7 @@ public class playerMovement: MonoBehaviour
         if (coll.gameObject.tag == "Enemy")
         {
             GameObject healthBar = GameObject.Find("HealthBar");
+            hitSound.Play();
             if (healthBar.transform.childCount != 0 && canTakeDamage)
             {
                 healthBar.GetComponent<HealthBarUI>().RemoveLife();

@@ -219,7 +219,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1659501308588996}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.8159468, y: -0.21161056, z: 5.044958}
+  m_LocalPosition: {x: -4.2211704, y: 0.07984543, z: 5.044958}
   m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_Children:
   - {fileID: 4857747227132634}
@@ -418,7 +418,7 @@ MonoBehaviour:
   target: {fileID: 0}
   canSearch: 1
   canMove: 1
-  speed: 10
+  speed: 20
   rotationSpeed: 360
   slowdownDistance: 0.6
   pickNextWaypointDist: 2
@@ -481,7 +481,6 @@ MonoBehaviour:
   spriteFlasher: {fileID: 114725588328092596}
   healthDrop: {fileID: 1884255959074350, guid: 31181bbca2a52b34d96a9193f7640a81, type: 2}
   deathCount: 6
-  sfx: {fileID: 0}
 --- !u!114 &114671890296930502
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -518,8 +517,9 @@ MonoBehaviour:
   - {fileID: 4840167441615320}
   - {fileID: 4643176492875456}
   edges: []
-  speed: 5
-  range: 7
+  speed: 15
+  range: 10
+  arm: {fileID: 1930033085290806}
 --- !u!114 &114725588328092596
 MonoBehaviour:
   m_ObjectHideFlags: 1
