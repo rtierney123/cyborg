@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class FaceTarget : MonoBehaviour {
-    public GameObject target;
+    private GameObject target;
     public Sprite down;
     public Sprite up;
     public Sprite right;
@@ -21,9 +21,7 @@ public class FaceTarget : MonoBehaviour {
         mySpriteRenderer = this.GetComponent<SpriteRenderer>();
         updateCol = this.GetComponent<UpdateColliders>();
         onCol = updateCol.bmCol;
-        
-        
-        //target = GameObject.Find("Player");
+        target = GameObject.Find("Player");
     }
 	
 	// Update is called once per frame

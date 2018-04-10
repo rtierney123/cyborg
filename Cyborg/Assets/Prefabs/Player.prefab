@@ -168,7 +168,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1225203835927254}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.8005362, y: -0.4088304, z: 0}
+  m_LocalPosition: {x: 258, y: 39, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 1}
   m_Children:
   - {fileID: 4634670511843812}
@@ -248,7 +248,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: -0.039999396, y: 0.5386455}
@@ -317,7 +317,7 @@ MonoBehaviour:
   weaponRotation: {fileID: 4636955438779814}
   spriteFlasher: {fileID: 114291061217346288}
   bulletSpawn: {fileID: 4427414357432356}
-  speed: 20
+  speed: 15
   projectile: {fileID: 1027195794295514, guid: 741a625fa9b150c49b7e7fda52d33abd, type: 2}
   direction: {x: 1, y: 0, z: 0}
   playerPos: {x: 0, y: 0}

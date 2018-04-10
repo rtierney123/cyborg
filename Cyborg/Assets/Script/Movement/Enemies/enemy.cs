@@ -10,11 +10,11 @@ public class enemy : MonoBehaviour
     private int hitCount;
 
     [SerializeField]
-    public SoundPlayer sfx;
+    //public SoundPlayer sfx;
 
     private void Start()
     {
-        sfx = GameObject.Find("SoundManager").GetComponent<SoundPlayer>();
+        //sfx = GameObject.Find("SoundManager").GetComponent<SoundPlayer>();
     }
 
     void OnCollisionEnter2D(Collision2D coll)
@@ -24,7 +24,7 @@ public class enemy : MonoBehaviour
             if (!this.spriteFlasher.IsInvicible())
             {
                 this.hitCount++;
-                sfx.PlayEnemyHit();
+                //sfx.PlayEnemyHit();
                 if (this.deathCount == this.hitCount)
                 {
                     Destroy(this.gameObject);

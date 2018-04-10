@@ -27,6 +27,12 @@ EditorBuildSettings:
     path: Assets/Scenes/StartScene.unity
     guid: 430860f5bce34224f85138d6556b16ea
   - enabled: 1
+    path: Assets/Scenes/LevelSelect.unity
+    guid: 1488cc21a177367419adb2d3f8e91d6a
+  - enabled: 1
+    path: Assets/Scenes/IntroSlides.unity
+    guid: 5a68fecaf489b0d4b8feabf93b0e33b1
+  - enabled: 1
     path: Assets/Scenes/Level1.unity
     guid: dae8069c5cbb6364092e197d6d80ae34
   - enabled: 1
@@ -39,5 +45,5 @@ EditorBuildSettings:
     path: Assets/Scenes/Level4.unity
     guid: c4b89c63a7c758c4499b1a425abd3191
   - enabled: 1
-    path: Assets/Scenes/LevelSelect.unity
-    guid: 1488cc21a177367419adb2d3f8e91d6a
+    path: Assets/Scenes/EndGameScreen.unity
+    guid: 352e656cb49839843b2ad77b519b3392

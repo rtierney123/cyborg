@@ -6,47 +6,66 @@ using UnityEngine.UI;
 public class HexCircle : MonoBehaviour
 {
     // Private References
-    private CircleCollider2D collider;
+    private List<CircleCollider2D> colliders = new List<CircleCollider2D>();
     private AudioSource whispers;
     private ParticleSystem particles;
+    private SpriteRenderer hexCircleAura;
     private GameObject player;
-    private Image Darkness;
+    private Image darkness;
 
     // Runtime Variables
     private bool playerInsideCircle;
 
     // Constants
-    private const float MAX_DARKNESS = 1.0f;
+    private const float MAX_DARKNESS = 0.95f;
     private const float MIN_DARKNESS = 0.0f;
-    private const float DARKNESS_RATE = 0.02f;
+    private const float DARKNESS_RATE = 0.015f;
+
     private const float MAX_VOLUME = 0.3f;
     private const float MIN_VOLUME = 0.0f;
     private const float VOLUME_RATE = 0.005f;
-	// Use this for initialization
-	void Start ()
+
+    private const float MAX_AURA = 1.0f;
+    private const float MIN_AURA = 0.0f;
+    private const float AURA_RATE = 0.02f;
+
+    public AudioSource background;
+
+    // Use this for initialization
+    void Start()
     {
         // Cache Private References
-        collider = this.gameObject.GetComponent<CircleCollider2D>();
         whispers = this.gameObject.GetComponent<AudioSource>();
         particles = this.gameObject.GetComponent<ParticleSystem>();
+        hexCircleAura = this.transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>();
         player = GameObject.FindGameObjectWithTag("Player");
-        Darkness = GameObject.FindGameObjectWithTag("Darkness").GetComponent<Image>();
+        darkness = GameObject.FindGameObjectWithTag("Darkness").GetComponent<Image>();
+
+        // Locate other Hex Circles
+        HexCircle[] hexCircles = GameObject.FindObjectsOfType<HexCircle>();
+        foreach (HexCircle h in hexCircles)
+        {
+            colliders.Add(h.GetComponent<CircleCollider2D>());
+        }
 
         // Initialize Runtime Variables
         playerInsideCircle = false;
-	}
-	
-	// Update is called once per frame
-	void Update ()
+    }
+
+    // Update is called once per frame
+    void Update()
     {
-		if(collider.bounds.Contains(player.transform.position))
+        foreach (CircleCollider2D c in colliders)
         {
-            playerInsideCircle = true;
+            if (c.bounds.Contains(player.transform.position))
+            {
+                playerInsideCircle = true;
+                background.volume = 0;
+                return;
+            }
         }
-        else
-        {
-            playerInsideCircle = false;
-        }
+        playerInsideCircle = false;
+        background.volume = (float).2;
     }
 
     // Update is called once per frame at a fixed rate
@@ -55,20 +74,21 @@ public class HexCircle : MonoBehaviour
         AdjustDarkness();
         AdjustAudio();
         AdjustParticles();
+        AdjustHexCircleAura();
     }
 
     // Change the darkness level based on if the player is inside the Hex Circle or not
     void AdjustDarkness()
     {
-        if(playerInsideCircle)
+        if (playerInsideCircle)
         {
-            if(Darkness.color.a >= MAX_DARKNESS){return;}
-            Darkness.color = new Color(0f, 0f, 0f, Darkness.color.a + DARKNESS_RATE);
+            if (darkness.color.a >= MAX_DARKNESS) { return; }
+            darkness.color = new Color(0f, 0f, 0f, darkness.color.a + DARKNESS_RATE);
         }
         else
         {
-            if (Darkness.color.a <= MIN_DARKNESS) { return; }
-            Darkness.color = new Color(0f, 0f, 0f, Darkness.color.a - DARKNESS_RATE);
+            if (darkness.color.a <= MIN_DARKNESS) { return; }
+            darkness.color = new Color(0f, 0f, 0f, darkness.color.a - DARKNESS_RATE);
         }
     }
 
@@ -97,6 +117,22 @@ public class HexCircle : MonoBehaviour
         else
         {
             particles.enableEmission = false;
+        }
+    }
+
+    // Adjusts the "aura" around the Hex Circle based on if the player is inside the Hex Circle or not
+    void AdjustHexCircleAura()
+    {
+        hexCircleAura.gameObject.transform.Rotate(Vector3.forward * -.9f);
+        if (playerInsideCircle)
+        {
+            if (hexCircleAura.color.a >= MAX_AURA) { return; }
+            hexCircleAura.color = new Color(1f, 1f, 1f, hexCircleAura.color.a + AURA_RATE);
+        }
+        else
+        {
+            if (hexCircleAura.color.a <= MIN_AURA) { return; }
+            hexCircleAura.color = new Color(1f, 1f, 1f, hexCircleAura.color.a - (2 * AURA_RATE));
         }
     }
 }
