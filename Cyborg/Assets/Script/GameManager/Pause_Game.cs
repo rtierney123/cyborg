@@ -15,6 +15,10 @@ public class Pause_Game : MonoBehaviour
         dialogPause = false;
     }
 
+    public void pauseGame() {
+        pauseButton = true;
+    }
+
     // Update is called once per frame
     void Update()
     {
