@@ -40,6 +40,10 @@ public class DialogManager : MonoBehaviour {
         {
             DisplayNextSentence();
         }
+        if (Input.GetKeyDown("x"))
+        {
+            EndDialogue();
+        }
     }
 
     public void StartDialogue (Dialog dialogue)
@@ -67,7 +71,6 @@ public class DialogManager : MonoBehaviour {
 
     public void DisplayNextSentence()
     {
-        Debug.Log(count);
         ToggleAllDialogUI(true);
 
 
