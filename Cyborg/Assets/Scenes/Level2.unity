@@ -2211,6 +2211,26 @@ Prefab:
       propertyPath: GameOverMenu
       value: 
       objectReference: {fileID: 735140076}
+    - target: {fileID: 1935625658152232, guid: 35245e2c923555c498b7ec7551a69587, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1639638369603914, guid: 35245e2c923555c498b7ec7551a69587, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1151172969203736, guid: 35245e2c923555c498b7ec7551a69587, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1430527735329666, guid: 35245e2c923555c498b7ec7551a69587, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1598726943467680, guid: 35245e2c923555c498b7ec7551a69587, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 35245e2c923555c498b7ec7551a69587, type: 2}
   m_IsPrefabParent: 0

@@ -10,6 +10,7 @@ public class Main_Menu : MonoBehaviour {
     void Start() {
         anim = menu.GetComponent<Animator>();
         anim.enabled = false;
+        Time.timeScale = 1;
     }
     //Navbar slie animations
     public void menulevel() {
