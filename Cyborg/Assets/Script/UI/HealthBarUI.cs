@@ -9,6 +9,10 @@ public class HealthBarUI : MonoBehaviour {
 	private int lives = 0;
 	private float UIwidth;
 	public GameObject LifeUI;
+
+    public GameObject GameOverMenu;
+    public Pause_Game pauseObj;
+
 	void Start () {
 		UIwidth = LifeUI.GetComponent<RectTransform>().rect.width;
 		for (int i = 0; i < startingLives; i++){
@@ -31,5 +35,9 @@ public class HealthBarUI : MonoBehaviour {
 	public void RemoveLife() {
 		Destroy(transform.GetChild(transform.childCount - 1).gameObject);
 		lives--;
+        if (lives == 0) {
+            pauseObj.pauseGame();
+            GameOverMenu.SetActive(true);
+        }
 	}
 }
