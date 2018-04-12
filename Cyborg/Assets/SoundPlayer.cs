@@ -34,7 +34,7 @@
 
         public void PlaySong(int index)
         {
-            audio.pitch = 1;
+            //audio.pitch = 1;
             audio.Stop();
             audio.loop = loop && index == loopSong;
             audio.clip = song[index];

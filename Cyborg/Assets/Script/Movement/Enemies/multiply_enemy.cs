@@ -8,10 +8,12 @@ public class multiply_enemy : MonoBehaviour
     public int hitPoints;
     public int multiply_number;
     private int hitCount;
+    private AudioSource hitSound;
     public Transform enemyParent;
     private void Start()
     {
         enemyParent = gameObject.transform.parent;
+        hitSound = GameObject.Find("EnemyHit").GetComponent<AudioSource>();
     }
     void OnCollisionEnter2D(Collision2D coll)
     {
@@ -20,6 +22,7 @@ public class multiply_enemy : MonoBehaviour
             if (!this.spriteFlasher.IsInvicible())
             {
                 hitCount++;
+                hitSound.Play();
                 if (hitPoints == hitCount)
                 {
                     for (int i = 0; i < multiply_number; i++)

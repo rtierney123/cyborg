@@ -20,6 +20,7 @@ namespace Enemy
 
         public int speed;
         public int range;
+        public GameObject arm;
 
         private GameObject target;
         private State state;
@@ -163,6 +164,7 @@ namespace Enemy
         {
             if (state == State.attacking)
             {
+                arm.SetActive(true);
                 chooseSwingDir();
                 armRenderer.enabled = true;
                 switch (dir)
@@ -210,6 +212,7 @@ namespace Enemy
                 }
             } else if (state == State.moving)
             {
+                arm.SetActive(false);
                 switch (dir)
                 {
                     case Direction.up:
