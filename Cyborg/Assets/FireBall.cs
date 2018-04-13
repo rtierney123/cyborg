@@ -51,7 +51,7 @@ namespace Projectile.ObjectPooling.Bullets
             } else
             {
                 ReturnBullet();
-            }      
+            }
         }
 
         private IEnumerator AttackAfterTime(float delay)
@@ -62,7 +62,7 @@ namespace Projectile.ObjectPooling.Bullets
 
         private void MakeFireBall()
         {
-            
+
             GameObject newFireBall = BulletPool.Instance.GetBullet(BulletPool.BulletTypes.FireBall);
             if (newFireBall != null)
             {
@@ -97,13 +97,18 @@ namespace Projectile.ObjectPooling.Bullets
         protected override void LocalDelete()
         {
         }
-        /*
+
         private void OnTriggerEnter2D(Collider2D collision)
         {
-            ReturnBullet();
+            if(collision.tag == "CannotMove")
+            {
+                ReturnBullet();
+            }
+            
 
         }
-        */
+
+ 
         
     }
 }

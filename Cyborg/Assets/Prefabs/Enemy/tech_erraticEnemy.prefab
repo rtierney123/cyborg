@@ -160,9 +160,9 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1708991816317440}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -4.6402664, y: -15.162876, z: -3.228837}
-  m_LocalScale: {x: 2.1093752, y: 2.1718738, z: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0.7071068, w: 0.7071068}
+  m_LocalPosition: {x: 23.4, y: 12.1, z: -1}
+  m_LocalScale: {x: 1.7300513, y: 2.3562458, z: 1}
   m_Children:
   - {fileID: 4090979669358690}
   - {fileID: 4277875827256580}
@@ -421,8 +421,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spriteFlasher: {fileID: 114513638403770766}
   healthDrop: {fileID: 1884255959074350, guid: 31181bbca2a52b34d96a9193f7640a81, type: 2}
-  deathCount: 1
-  sfx: {fileID: 0}
+  deathCount: 3
 --- !u!114 &114195504810499834
 MonoBehaviour:
   m_ObjectHideFlags: 1

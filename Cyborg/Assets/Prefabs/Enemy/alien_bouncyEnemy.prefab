@@ -174,7 +174,7 @@ MonoBehaviour:
   target: {fileID: 0}
   canSearch: 1
   canMove: 1
-  speed: 6
+  speed: 4
   rotationSpeed: 360
   slowdownDistance: 0.6
   pickNextWaypointDist: 2
@@ -264,7 +264,6 @@ MonoBehaviour:
   spriteFlasher: {fileID: 114962398588193228}
   healthDrop: {fileID: 1884255959074350, guid: 31181bbca2a52b34d96a9193f7640a81, type: 2}
   deathCount: 2
-  sfx: {fileID: 0}
 --- !u!114 &114962398588193228
 MonoBehaviour:
   m_ObjectHideFlags: 1

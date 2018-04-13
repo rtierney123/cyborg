@@ -20,6 +20,7 @@ TagManager:
   - Elevator
   - Heal
   - Darkness
+  - Obstacle
   layers:
   - Default
   - TransparentFX

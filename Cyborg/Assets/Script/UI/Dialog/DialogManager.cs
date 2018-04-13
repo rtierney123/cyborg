@@ -40,6 +40,11 @@ public class DialogManager : MonoBehaviour {
         {
             DisplayNextSentence();
         }
+
+        if (Input.GetKeyDown("x"))
+        {
+            EndDialogue();
+        }
     }
 
     public void StartDialogue (Dialog dialogue)

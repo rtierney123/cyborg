@@ -181,16 +181,13 @@ MonoBehaviour:
       are \rcreated for the most select evil institutions.  "
     - "Anarchy Services is the premier place for super villians, dictators,\r and
       Disney to purchase their tools for world domination."
-    - "Up unitl a year ago, the CEO of this company was Clyde Burge.  Tired of the
+    - "Up unit a year ago, the CEO of this company was Clyde Burge.  Tired of the
       villian game, he was going to turn the island\r into a tourist destination."
     - "His wife, Angelica Masters, did not find this agreeable.  Knowing he always
       wanted awesome\r robotic arms, she tricked him into surgery."
     - "Instead of robotic arms, she took his head off and placed it onto an experimental\r
       robotic body.  After the surgery, he was placed in cryosleep in a closet on
-      the bottom floor.\r\n"
-    - "After a power surge during a thunderstorm, Clyde was awoken before Angelica
-      could brainwash him.  Now, Clyde must fight\r his way for the first floor as
-      Angelica sends wave after wave of his former employees."
+      the bottom floor...\n"
     speakers:
     - {fileID: 1803483629144282, guid: 613348549b6b1be4492f4d20a9db8c7c, type: 2}
     - {fileID: 1803483629144282, guid: 613348549b6b1be4492f4d20a9db8c7c, type: 2}

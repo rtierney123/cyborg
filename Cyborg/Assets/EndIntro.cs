@@ -21,10 +21,15 @@ public class EndIntro : MonoBehaviour {
             {
                 if (startNextLevel)
                 {
-                    Invoke("StartGame", 1);
+                    Invoke("StartGame", (float) .5);
                 }
                 startNextLevel = false;
             }
+        }
+
+        if (Input.GetKeyDown("x"))
+        {
+            StartGame();
         }
     
     }
