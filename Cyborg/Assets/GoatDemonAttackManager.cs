@@ -32,6 +32,7 @@ namespace Enemy
         private Attack currentAttack;
 
         private int count;
+        private AudioSource bleep;
         // Use this for initialization
         void Start()
         {
@@ -42,6 +43,7 @@ namespace Enemy
             fire = gameObject.GetComponent<FireGoat>();
             backOff = gameObject.GetComponent<BackOff>();
             playerLocation = GameObject.Find("Player");
+            bleep = this.GetComponent<AudioSource>();
         }
 
         // Update is called once per frame
@@ -74,6 +76,7 @@ namespace Enemy
                     Invoke("Fire", 1);
                     changeAttack = false;
                     attackCount = 1;
+                    bleep.Play();
                     return fire;
                 }
                 else

@@ -10,6 +10,7 @@ namespace Enemy
         public int bounceAmt;
         public int amplitude;
         public int period;
+        public AudioSource source;
         enum travelDir {x, y};
 
         private float time;
@@ -102,6 +103,7 @@ namespace Enemy
         private void ReturnColor()
         {
             m_SpriteRenderer.color = origColor;
+            source.Play();
         }
 
         private void ChangeDir()

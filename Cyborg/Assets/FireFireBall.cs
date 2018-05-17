@@ -10,7 +10,8 @@ public class FireFireBall : Attack {
     public Transform ltLoc;
     public Transform tpLoc;
     public Transform bmLoc;
-    
+    public AudioSource source;
+
     [HideInInspector]
     public SingleAttackManager.Direction dir;
     private bool allowAttack;
@@ -51,13 +52,14 @@ public class FireFireBall : Attack {
         {
             allowAttack = false;
             //Invoke("CreateBullet", 1);
-            StartCoroutine(ExecuteAfterTime((float).5));
+            StartCoroutine(ExecuteAfterTime((float)2));
         }
     }
 
     private IEnumerator ExecuteAfterTime(float delay)
     {
         yield return new WaitForSeconds(delay);
+        source.Play();
         CreateBullet();
     }
 

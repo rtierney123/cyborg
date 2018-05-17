@@ -103,7 +103,7 @@ namespace Enemy
                 Rigidbody2D rb = target.GetComponent<Rigidbody2D>();
                 target.GetComponent<playerMovement>().active = false;
                 Invoke("EnablePlayer", attackPower + puffDuration);
-                rb.velocity = (target.transform.position - transform.position).normalized * attackPower * 100;
+                rb.velocity = (target.transform.position - transform.position).normalized * attackPower*100;
                 attack();
             }
         }

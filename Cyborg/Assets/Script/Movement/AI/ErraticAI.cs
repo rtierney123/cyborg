@@ -11,6 +11,7 @@ namespace Enemy
         private Rigidbody2D rb;
         private Transform[] boxColliders;
         private int onIndex;
+        public AudioSource source;
 
         private Vector2 dir;
         //used for erratic enemy, starting position for charge
@@ -65,7 +66,7 @@ namespace Enemy
 
             if (startCharge)
             {
-
+                source.Play();
                 float absx = Mathf.Abs(dirToPlayer.x);
                 float absy = Mathf.Abs(dirToPlayer.y);
                 float x = dirToPlayer.x;

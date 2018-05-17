@@ -10,7 +10,8 @@ public class RayGunAI : Attack {
     public Transform ltFire;
     public Transform tpFire;
     public Transform bmFire;
-   
+
+    public AudioSource source;
     /// <summary> The point to spawn the bullets at. </summary>
     private Transform bulletSpawn;
     /// <summary> How often to shoot. </summary>
@@ -124,7 +125,7 @@ public class RayGunAI : Attack {
         GameObject b = BulletPool.Instance.GetBullet(BulletPool.BulletTypes.Blaster);
         if (b != null)
         {
-            Debug.Log("fire");
+            source.Play();
             b.transform.position = this.bulletSpawn.position;
         }
   

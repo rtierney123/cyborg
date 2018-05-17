@@ -30,7 +30,7 @@ namespace Enemy
         private AttackMode currentMode;
 
         private int count;
-        // Use this for initialization
+        private AudioSource robotNoises;
         void Start()
         {
             changeAttack = false;
@@ -40,6 +40,7 @@ namespace Enemy
             fire = gameObject.GetComponent<FireCircleBullets>();
             basic = gameObject.GetComponent<BasicAI>();
             playerLocation = GameObject.Find("Player");
+            robotNoises = this.GetComponent<AudioSource>();
         }
 
         // Update is called once per frame
@@ -64,6 +65,7 @@ namespace Enemy
                     changeAttack = false;
                     attackCount++;
                     currentMode = AttackMode.swing;
+                    robotNoises.Play();
                     return swing;
                 }
                 else if (attackCount == 2)

@@ -7,12 +7,15 @@ using UnityEngine.SceneManagement;
 public class ElevatorController : MonoBehaviour
 {
     public int nextLevel;
+    public AudioSource elevatormusic;
+    public AudioSource[] backgroundmusic;
 
     private Rigidbody2D rb;
     private GameObject player;
     private Rigidbody2D playerRB;
     private bool rise;
     private GameObject door;
+    private bool playMusic;
     // Use this for initialization
     void Start()
     {
@@ -23,6 +26,7 @@ public class ElevatorController : MonoBehaviour
         rise = false;
         door = gameObject.transform.Find("EWall1").gameObject;
         door.SetActive(false);
+        playMusic = true;
     }
 
     // Update is called once per frame
@@ -45,6 +49,16 @@ public class ElevatorController : MonoBehaviour
             Physics2D.gravity = new Vector2(0, 0);
             StartCoroutine(goUpElevator());
             door.SetActive(true);
+            foreach(AudioSource music in backgroundmusic)
+            {
+                music.Stop();
+            }
+            if (playMusic)
+            {
+                elevatormusic.Play();
+                playMusic = false;
+            }
+            
         }
     }
 

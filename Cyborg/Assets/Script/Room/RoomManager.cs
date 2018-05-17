@@ -12,6 +12,8 @@ namespace Rooms
         public Transform enemiesParent;
         //gameobject that has collider trigger that starts enemies and closes doors when player in room
         public GameObject roomTrigger;
+        public GameObject directionArrow;
+        public AudioSource source;
       
 
         //starts with false unil all enemies are killed
@@ -20,6 +22,7 @@ namespace Rooms
         private bool justEntered;
         //script with trigger bool
         private FloorTrigger trigger;
+
        
         private void Start()
         {
@@ -68,9 +71,17 @@ namespace Rooms
                 {
                     door.gameObject.SetActive(false);
                     roomCleared = true;
+                    directionArrow.SetActive(true);
+                    source.Play();
+                    Invoke("RemoveArrow", 2);
                 }
             }
             
+        }
+
+        private void RemoveArrow()
+        {
+            directionArrow.SetActive(false);
         }
     }
 

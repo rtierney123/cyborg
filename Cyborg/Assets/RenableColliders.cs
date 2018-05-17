@@ -5,22 +5,33 @@ using UnityEngine;
 public class RenableColliders : MonoBehaviour {
     public GameObject colliderHolder;
     public AudioSource alarm;
-    private bool firstCollide = true;
+    private bool firstCollide;
+
+    private void Start()
+    {
+        firstCollide = true;
+    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        colliderHolder.SetActive(true);
-        if (firstCollide)
+        if (collision.name == "Player")
         {
-            alarm.Play();
-            firstCollide = false;
-            Invoke("StopAlarm", 5);
+            colliderHolder.SetActive(true);
+            if (firstCollide)
+            {
+                alarm.Play();
+                firstCollide = false;
+                Invoke("StopAlarm", 5);
+            }
         }
 
+
     }
+
 
     private void StopAlarm()
     {
         alarm.mute = true;
     }
+    
 }

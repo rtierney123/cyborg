@@ -11,13 +11,16 @@ namespace Enemy
         private Vector2 travelDir;
         private bool allowChange;
         public Transform puddleLocation;
+        public Transform player;
         private int yieldTime;
+        private Vector2 distance;
 
         private void Start()
         {
             travelDir = new Vector2(0, -1);
             allowChange = true;
             yieldTime = 5;
+            distance = player.transform.position - this.transform.position;
         }
         public override Vector2 move(Vector2 tan)
         {
@@ -71,6 +74,7 @@ namespace Enemy
 
         private void LateUpdate()
         {
+            distance = player.transform.position - this.transform.position;
             attack();
         }
 
@@ -80,7 +84,30 @@ namespace Enemy
             float yvalue = Random.value;
             xvalue = MapValue(xvalue, 0, 1, -1, 1);
             yvalue = MapValue(yvalue, 0, 1, -1, 1);
-            travelDir = new Vector2(xvalue, yvalue).normalized;
+            if (Mathf.Abs(distance.x) > Mathf.Abs(distance.y))
+            {
+                float playerx = Mathf.Sqrt(1 - Mathf.Pow(yvalue, 2));
+                if (distance.x < 0)
+                {
+                    travelDir = new Vector2(-playerx, yvalue).normalized;
+                } else
+                {
+                    travelDir = new Vector2(playerx, yvalue).normalized;
+                }
+                
+            } else
+            {
+                float playery = Mathf.Sqrt(1 - Mathf.Pow(xvalue, 2));
+                if (distance.y < 0)
+                {
+                    travelDir = new Vector2(xvalue, -playery).normalized;
+                }
+                else
+                {
+                    travelDir = new Vector2(xvalue, playery).normalized;
+                }
+            }
+            
             allowChange = true;
         }
 

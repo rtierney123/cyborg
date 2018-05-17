@@ -114,6 +114,7 @@ MonoBehaviour:
   speed: 0
   rgbdy: {fileID: 0}
   hasRB: 0
+  createTime: 1
   createdByEnemy: 0
 --- !u!212 &212894230881225830
 SpriteRenderer:

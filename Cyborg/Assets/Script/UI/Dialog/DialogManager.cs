@@ -52,6 +52,7 @@ public class DialogManager : MonoBehaviour {
         Debug.Log("Starting conversation with " + dialogue.name);
         pause.DialogPause = true;
         sentences.Clear();
+        speakers.Clear();
 
         foreach (string sentence in dialogue.sentences)
         {
@@ -63,16 +64,12 @@ public class DialogManager : MonoBehaviour {
             speakers.Enqueue(speaker);
         }
 
-        
-        //nameText.text = dialogue.name;
-        
-
+     
         DisplayNextSentence();
     }
 
     public void DisplayNextSentence()
     {
-        Debug.Log(count);
         ToggleAllDialogUI(true);
 
 

@@ -10,6 +10,7 @@ public class multiply_enemy : MonoBehaviour
     private int hitCount;
     private AudioSource hitSound;
     public Transform enemyParent;
+    public AudioSource source;
     private void Start()
     {
         enemyParent = gameObject.transform.parent;
@@ -25,6 +26,7 @@ public class multiply_enemy : MonoBehaviour
                 hitSound.Play();
                 if (hitPoints == hitCount)
                 {
+                    
                     for (int i = 0; i < multiply_number; i++)
                     {
                         Instantiate(offspring, transform.position, Quaternion.identity, enemyParent);

@@ -8,6 +8,7 @@ public class GoToScene : MonoBehaviour {
     public Button button;
     //string of scene to start
     public string level;
+
 	// Use this for initialization
 	void Start () {
         button.onClick.AddListener(TaskOnClick);
@@ -20,6 +21,7 @@ public class GoToScene : MonoBehaviour {
         {
             Debug.Log("Need to add scene name");
         }
-        SceneManager.LoadScene(level);
+      
+        SceneManager.LoadScene(level, LoadSceneMode.Single);
     }
 }

@@ -28,6 +28,7 @@ GameObject:
   - component: {fileID: 114178671896199540}
   - component: {fileID: 114797364652197480}
   - component: {fileID: 114433939589164702}
+  - component: {fileID: 82422584845987492}
   m_Layer: 9
   m_Name: multiply_enemy_medium
   m_TagString: Enemy
@@ -93,6 +94,86 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.4, y: 2}
   m_EdgeRadius: 0
+--- !u!82 &82422584845987492
+AudioSource:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1960874377540996}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: cfea2f7e63f9f0d48a8c849b495453ae, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 0.2
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
 --- !u!114 &114178671896199540
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -168,6 +249,7 @@ MonoBehaviour:
   hitPoints: 4
   multiply_number: 3
   enemyParent: {fileID: 0}
+  source: {fileID: 82422584845987492}
 --- !u!114 &114670473848393752
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -209,7 +291,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   puffDuration: 0.5
   puffAmount: 0.75
-  attackPower: 0.5
+  attackPower: 0.3
 --- !u!212 &212969080760573382
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -242,7 +324,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1303668085
-  m_SortingLayer: 3
+  m_SortingLayer: 4
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 056bc3efa7baa234db1a76f6e2b99829, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

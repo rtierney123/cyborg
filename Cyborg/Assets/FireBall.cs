@@ -9,6 +9,7 @@ namespace Projectile.ObjectPooling.Bullets
         public float speed;
         public Rigidbody2D rgbdy;
         public bool hasRB;
+        public int createTime;
 
         [HideInInspector]
         //public Transform enemy;
@@ -24,7 +25,7 @@ namespace Projectile.ObjectPooling.Bullets
         private void Awake()
         {
             newFireLoc = gameObject.transform.GetChild(0).transform;
-            allowNew = Time.time + 2;
+            allowNew = Time.time + createTime;
         }
 
         protected override void LocalInitialize()

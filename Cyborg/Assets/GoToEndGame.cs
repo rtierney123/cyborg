@@ -9,9 +9,11 @@ public class GoToEndGame : MonoBehaviour {
     {
         if (end)
         {
-            Debug.Log("End game");
-            Invoke("EndGame", 2);
-            end = false;
+            if (other.name == "Player")
+            {
+                Invoke("EndGame", 2);
+                end = false;
+            }
         }
        
     }

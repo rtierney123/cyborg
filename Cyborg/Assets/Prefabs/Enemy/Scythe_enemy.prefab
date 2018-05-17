@@ -118,6 +118,7 @@ GameObject:
   - component: {fileID: 114671890296930502}
   - component: {fileID: 114725588328092596}
   - component: {fileID: 50485803863059250}
+  - component: {fileID: 82262068050931858}
   m_Layer: 9
   m_Name: Scythe_enemy
   m_TagString: Enemy
@@ -218,9 +219,9 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1659501308588996}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.2211704, y: 0.07984543, z: 5.044958}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -45.021633, y: -10.733981, z: 5.123083}
+  m_LocalScale: {x: 0.5000001, y: 0.5000001, z: 1}
   m_Children:
   - {fileID: 4857747227132634}
   - {fileID: 4027492670219106}
@@ -395,6 +396,86 @@ EdgeCollider2D:
   - {x: -2.5198045, y: 4.785991}
   - {x: -0.36706018, y: 6.10304}
   - {x: 0.7541325, y: 6.3796625}
+--- !u!82 &82262068050931858
+AudioSource:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1659501308588996}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: fb617bd242ef94044b29fa90f8e7c2d8, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 0.3
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
 --- !u!114 &114169817622345570
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -480,7 +561,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spriteFlasher: {fileID: 114725588328092596}
   healthDrop: {fileID: 1884255959074350, guid: 31181bbca2a52b34d96a9193f7640a81, type: 2}
-  deathCount: 6
+  deathCount: 5
 --- !u!114 &114671890296930502
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -520,6 +601,7 @@ MonoBehaviour:
   speed: 15
   range: 10
   arm: {fileID: 1930033085290806}
+  source: {fileID: 82262068050931858}
 --- !u!114 &114725588328092596
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -566,7 +648,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1981125435
-  m_SortingLayer: 5
+  m_SortingLayer: 6
   m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 8bf9db34f09caa74bbf8c37f508ffc4a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -610,7 +692,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1303668085
-  m_SortingLayer: 3
+  m_SortingLayer: 4
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: cfd996dcdc2de8f4a9617b066f846d24, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

@@ -65,7 +65,7 @@ public class HexCircle : MonoBehaviour
             }
         }
         playerInsideCircle = false;
-        background.volume = (float).2;
+        background.volume = (float).02;
     }
 
     // Update is called once per frame at a fixed rate

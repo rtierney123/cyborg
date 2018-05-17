@@ -26,7 +26,7 @@ namespace Enemy
         private BasicAI moveTowards;
         private BackOff backOff;
         private Attack currentAttack;
-
+        private AudioSource audio;
         private int count;
         // Use this for initialization
         void Start()
@@ -40,6 +40,7 @@ namespace Enemy
             backOff = gameObject.GetComponent<BackOff>();
 
             playerLocation = GameObject.Find("Player");
+            audio = this.GetComponent<AudioSource>();
         }
 
         // Update is called once per frame
@@ -55,21 +56,21 @@ namespace Enemy
             {
                 if (attackCount == 1)
                 {
+                    StartDelay();
+                    currentAttack = moveTowards;
+                    changeAttack = false;
+                    attackCount++;
+                    return moveTowards;
+                }
+                else if (attackCount == 2)
+                {
                     delay = 5;
                     StartDelay();
                     currentAttack = charge;
                     changeAttack = false;
-                    attackCount++;
+                    attackCount--;
+                    audio.Play();
                     return charge;
-                }
-                else if (attackCount == 2)
-                {
-                    //StartCoroutine(DelayNextAttack());
-                    StartDelay();
-                    currentAttack = moveTowards;
-                    changeAttack = false;
-                    attackCount = 1;
-                    return moveTowards;
                 } else
                 {
                     StartDelay();

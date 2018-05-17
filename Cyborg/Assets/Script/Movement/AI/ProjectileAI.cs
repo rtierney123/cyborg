@@ -12,6 +12,7 @@ namespace Enemy
         /// <summary> How often to shoot. </summary>
         public float shootTime;
         public Sprite[] spriteArray;
+        public AudioSource source;
 
         //tests the possible gameobject targets for projectile
         private Transform[] possibleProjectilePos;
@@ -48,6 +49,7 @@ namespace Enemy
         public override void attack()
         {
             FireBullet();
+           
         }
 
         /// <summary> Thest the sprite based on aim direction. </summary>
@@ -103,6 +105,7 @@ namespace Enemy
             {
                 b.transform.position = this.bulletSpawn.position;
                 b.transform.rotation = this.bulletSpawn.rotation;
+                source.Play();
             }
         }
     }

@@ -8,6 +8,12 @@ public class shield_enemy : MonoBehaviour
     public SpriteRenderer shieldRenderer;
 
     private int hitCount;
+    private AudioSource hitSound;
+
+    private void Start()
+    {
+        hitSound = GameObject.Find("EnemyHit").GetComponent<AudioSource>();
+    }
 
     void OnCollisionEnter2D(Collision2D coll)
     {
@@ -20,6 +26,7 @@ public class shield_enemy : MonoBehaviour
             if (!this.spriteFlasher.IsInvicible())
             {
                 this.hitCount++;
+                hitSound.Play();
                 if (this.deathCount == this.hitCount)
                 {
                     Destroy(this.gameObject);

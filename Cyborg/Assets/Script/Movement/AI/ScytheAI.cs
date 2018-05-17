@@ -21,6 +21,7 @@ namespace Enemy
         public int speed;
         public int range;
         public GameObject arm;
+        public AudioSource source;
 
         private GameObject target;
         private State state;
@@ -28,6 +29,7 @@ namespace Enemy
         private Direction swingStartDir;
         private float angle;
         private float endAngle;
+        private bool playSwoosh;
 
         public void Start()
         {
@@ -37,6 +39,7 @@ namespace Enemy
             swingStartDir = dir;
             angle = 0;
             endAngle = 360;
+            playSwoosh = true;
         }
 
         public override Vector2 move(Vector2 tan)
@@ -164,6 +167,12 @@ namespace Enemy
         {
             if (state == State.attacking)
             {
+                if (playSwoosh)
+                {
+                    source.Play();
+                    playSwoosh = false;
+                }
+                
                 arm.SetActive(true);
                 chooseSwingDir();
                 armRenderer.enabled = true;
@@ -212,6 +221,7 @@ namespace Enemy
                 }
             } else if (state == State.moving)
             {
+                playSwoosh = true;
                 arm.SetActive(false);
                 switch (dir)
                 {

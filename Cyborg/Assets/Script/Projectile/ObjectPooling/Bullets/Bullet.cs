@@ -35,11 +35,13 @@
         {
             if (!hasExplosion)
             {
-                
+                this.currentLifeTime = 0;
+                /*
                 if (collider.gameObject.tag != "Bullet")
                 {
                     this.currentLifeTime = 0;
                 }
+                */
                     
             }
            

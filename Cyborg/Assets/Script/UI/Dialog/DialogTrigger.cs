@@ -4,7 +4,7 @@ using UnityEngine;
 //using UnityEditor;
 
 public class DialogTrigger : MonoBehaviour {
-
+ 
     private enum TRIGGER_TYPE
     {
         IMMEDIATE,
@@ -34,6 +34,7 @@ public class DialogTrigger : MonoBehaviour {
         {
             dialogCollider = this.gameObject.GetComponent<BoxCollider2D>();
         }
+        
     }
 
     public void TriggerDialogue()
@@ -88,7 +89,6 @@ public class DialogTrigger : MonoBehaviour {
                 }
                 Debug.Log("Player Entered dialog zone.");
                 dialogCollider.enabled = false;
-
                 TriggerDialogue();
             }
         }

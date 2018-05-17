@@ -9,6 +9,10 @@ namespace Enemy
     {
         private enum State { attacking, moving, charging };
         public enum Direction { up, down, left, right };
+        public GameObject shootUp;
+        public GameObject shootDown;
+        public GameObject shootRight;
+        public GameObject shootLeft;
         private bool attacking;
 
         public Sprite[] spritesIdle;
@@ -22,6 +26,7 @@ namespace Enemy
         public float range;
         public int speed;
         public int shotSpread;
+        public AudioSource source;
 
         private GameObject target;
         private State state;
@@ -195,7 +200,9 @@ namespace Enemy
                  angle = -angle;
             }
             */
+            source.Play();
             float angle;
+         
             if (dir == Direction.up)
             {
                 angle = 90;
@@ -212,16 +219,43 @@ namespace Enemy
             {
                 angle = 180;
             }
-
+           
+            //GameObject a = BulletPool.Instance.GetBullet(BulletPool.BulletTypes.Enemy);
+            //a.transform.position = shootUp.transform.position;
+            //a.transform.rotation = shootUp.transform.rotation;
             for (int i = -shotSpread; i <= shotSpread; i += shotSpread)
             {
                 GameObject a = BulletPool.Instance.GetBullet(BulletPool.BulletTypes.Enemy);
                 if (a != null)
                 {
+                    Debug.Log("shoot");
+                   
+                    Vector3 shootPosition;
+                    if (dir == Direction.up)
+                    {
+                        shootPosition = shootUp.transform.position;
+                        //angle = shootUp.transform.rotation.z;
+                    }
+                    else if (dir == Direction.down)
+                    {
+                        shootPosition = shootDown.transform.position;
+                        //angle = shootDown.transform.rotation.z;
+                    }
+                    else if (dir == Direction.right)
+                    {
+                        shootPosition = shootRight.transform.position;
+                        //angle = shootRight.transform.rotation.z;
+                    }
+                    else
+                    {
+                        shootPosition = shootLeft.transform.position;
+                        //angle = shootLeft.transform.rotation.z;
+                    }
                     Vector3 sp = 3 * (Vector3)(Quaternion.Euler(0, 0, angle + i) * Vector3.right);
-                    a.transform.position = projectileSpawner.position + sp;
+                    a.transform.position = shootPosition + sp;
                     a.transform.rotation = Quaternion.Euler(0, 0, angle + i);
                 }
+               
             }
 
         }
